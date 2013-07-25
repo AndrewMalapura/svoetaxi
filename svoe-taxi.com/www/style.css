@@ -1,0 +1,456 @@
+	*
+	{
+	 margin:0;
+	 padding:0
+	 }
+	body
+	{font-family:Arial, Arial, Helvetica, sans-serif;
+	 font-size: 11pt;
+	 background: #fff; }
+	.active
+	{
+	 background-image: url(image/active.png) !important;
+	 background-repeat: repeat-x !important;
+	}
+	.active a{
+	 color: #CC0033 !important;
+	}
+	.active-submenu
+	{
+	 font-weight: bold !important;
+	}
+	#add-img{
+	  border: 1px solid #000;
+	  height: 262px;
+	  width: 242px;
+	}
+	.admin-form{
+	  float: left;
+	  width: 30%;
+	  padding-left: 30px;
+	}
+	.admin-page{
+     width: 100%;
+	 /*border: 2px solid #ccc;	
+	 margin: 3px;
+	 padding: 5px;*/
+	 overflow:hidden;
+	}
+	.admin-table 
+	{
+	 border-collapse: collapse;
+	/* border: 1px solid #000;*/
+	 width: 100%;
+	 padding: 1px;
+	}
+	.admin-table th,td{
+	 height: 30px;
+	 margin: 0;
+	 border: 1px solid black;
+	 text-align: center;
+	}
+	.admin-data-div{
+	  border: 1px solid #000;
+	  width:65%;
+	  float: right;
+	  margin-right: 10px;
+	}
+	#authorization {
+	 width: 165px;
+	 margin: 0 auto;
+	 padding: 8px 5px;
+	 border: 1px solid #000;
+	 background: #ccc;
+	 text-align: center;
+	}
+	#authorization input{
+	margin: 6px;
+	}
+	#authorization input[type="submit"]{
+	position: relative;
+	width: 50%;
+	font-weight: bold;
+	}
+	.control{
+	 margin-top: 20px;
+	 width: 200px;
+	 height: 73px;
+	 background: url(image/control.jpg);
+	 }
+	 #command-div{
+	  margin: 30px;
+	 }
+	 .command-button{
+	  padding: 3px 20px;
+	  width: 300px;
+	  font-weight: bold;
+	  background-color: #ddd;
+	 }
+	.call{
+	 margin-top: 10px;
+	 background-color: green;
+	 width: 200px;
+	 height: 80px;
+	}
+	#car-form .descript{
+	 text-align: left;
+	 padding-left: 4px;
+	 font-weight: 600;
+	 font: 10pt 'Arial';
+	}
+	#car-form .descript img{
+	 border: 3px outset #ccc;
+	 margin: 0;
+	 width: 20px;
+	 height: 20px;
+	 float: right;
+	}
+	.col_title{ /* red strips*/
+	 clear: both;
+	 width: 100%;
+	 height: 8px;
+	 background-color: #d70505;
+	 margin: 5px 0 5px 0;
+	}
+	.content
+	{
+	 position: relative;
+	 height: auto;
+	 line-height: 1.5;
+	 padding: 5px 15px;
+	}
+	.content-text{
+	  text-align: justify;
+	}
+	.descript{
+	 padding:0;
+	}
+	 .depiction{
+	  font-size: 12px;
+	  color: #666666;
+	 }
+	 .edit-form {
+	 margin: 40px auto;
+	 border: 1px solid #000;
+	 width: 60%;
+	}
+	.edit-form form{
+	 padding: 4px;
+	 border: 1px solid #000;
+	 text-align: center;
+	}
+	.edit-form table,tr{
+	 width: auto;
+	 margin: 10px auto;
+	}
+	.edit-form td{
+	 border-style: hidden;
+	 }
+	.edit-form input{
+	 width: 175px;
+	 margin: 3px;
+	}
+	 .feedback-image{
+	  margin-top: 20px;
+	  width: 200px;
+	  height: 73px;
+	  background: url(image/feedback.jpg); 
+	  }
+	 .feed_link {
+	  font-size: 14pt;
+	  text-align: center;
+	  margin-top: 3px;
+	  margin-bottom: 3px;
+	  }
+	  .feed_link a {
+	  color: #000;
+	  text-decoration: none;
+	  }
+	  .feed_link a:visited{
+	  color: #000;
+	  }
+	  .feed_link a:hover{
+	  color: #000;
+	  text-decoration: underline;
+	  }
+	  #find-form{
+	  border: 1px solid #000;
+	  width:240px;
+	 }
+	 #find{
+	  width: 244px;
+	}	 
+	 #find-form input,select{
+	  margin: 5px;
+	  width:220px;
+	 }
+	 #find-form legend{
+	   margin-left: 20px;
+	 }
+	.footer
+	{ 
+	 height: 40px;
+	 margin: 0; 
+	 width: 1000px;
+	 height: 150px;
+	 position: relative;
+	 }
+	 .footer_menu{
+	 margin: 15px 15px 15px 15px;
+	 text-decoration: none;
+	 font-size: 10pt; 
+	 font-weight: 500;
+	 height: 30px;
+	 border-bottom:1px dotted #000;
+	 padding: 5px 15px 15px 5px;
+	 }
+	 .footer_menu a{
+	 display: block;
+	 text-decoration: none;
+	 text-transform: uppercase;
+	 font-size: 9pt; 
+	 font-weight: 500;
+	 color: #000;
+	 }
+	 .footer_menu li{
+	 list-style: none;
+	 margin-right: 10px;
+	 float: left !important;
+	 }
+	 .footer_bottom{
+	 /**/
+	 margin-top: 20px;
+	 margin-bottom: 20px;
+	 font-size: 9pt;
+	 height: 50px;
+	 }
+	 .foto-cars{
+	  margin: 2px;
+	 }
+	 .f_contacts{
+	 position: relative;
+	 vertical-align: top;
+	 width: 400px;
+	 float: left;
+	 }
+	 .f_contacts a{
+	  color: red;
+	 }
+	 .f_copy{
+	 width: 100px;
+	 position: relative;
+	 right: 3px;
+	 text-align: right;
+	 float: right;
+	 }
+	#head{
+	 background-color: silver;
+	}
+	 .header{
+	 height:130px;
+	 /*background:url(image/header.png);*/
+	 }
+	 #iframebox{
+		width:345px; 
+		height:500px;
+	 }
+	 .img_bot{  /*div с нами комфортно
+	  border: 1px solid #aaa;*/
+	  height: 40px;
+	  width: auto;
+	  margin:  5px 10px 5px 10px;
+	  clear: both;
+	  background: url(image/bottom_content.png) no-repeat left;
+	 }
+	  #img-form{
+	  /*border: 1px solid #000;
+	  
+	  margin-right: 600px;*/
+	  padding-left: 50px;
+	  width: 275px;
+	  float: left;
+	 }
+	 #img-table{
+	  border: 1px solid #000;
+	  width:600px;
+	  float: right;
+	  margin-right: 10px;
+	 }
+	 .main{
+	overflow:hidden;
+	}
+	#online-order{
+	text-align: center;
+	}
+	.message{
+	 font-size: 20px;
+	 text-align: center;
+	 margin: 5px;
+	}
+	.new-admin{
+	 width: 160px;
+	 margin: 0 auto;
+	 padding: 5px;
+	 border: 1px solid #000;
+	 background: #ccc;
+	}
+	.new-admin input{
+	 margin: 5px;
+	}
+	.new-rate{
+	 width: 230px;
+	 margin: 0 auto;
+	 padding: 5px;
+	 border: 1px solid #000;
+	 background: #ccc;
+	}
+	.new-rate input{
+	 width: 210px;
+	 margin: 5px 10px 5px 10px;
+	}
+	.new-car{
+	 width: 230px;
+	 float: left;
+	 margin-right: 5px;
+	 padding: 5px;
+	 border: 1px solid #000;
+	 background: #ccc;
+	}
+	.new-car input,select{
+	  width: 210px;
+	  margin: 5px 10px 5px 10px;
+	}
+	.page-title{ 
+	 color: #d70505 ;
+	 font-size: 22px;
+	 font-weight: 100;
+	 line-height: 200%;
+	}
+	#partner-table{
+	 border-style: none;
+	 width: 75%; 
+	}
+	#partner-table td{
+	 border-style: none;
+	 text-align: left;
+	}
+	.policy-list{
+	margin-left: 10px;
+	}
+	.policy-list ol{
+	font-weight: bold;
+	margin-left: 15px;
+	}
+	.policy-list li{
+	font-weight: normal;
+	color: #000;
+	}
+	.red-str {
+	 color: red;
+	}
+	 .sidebar
+	{
+	 width: 200px;
+	 height: 100%;
+	 float: right;
+	 padding-bottom: 10px;
+	 padding-top: 25px;
+	}
+	 .section-menu{
+	 height: 30px;
+	 font-size: 10pt;
+	 background: none repeat scroll 0 0 #DFDDE2;
+	 
+	 }
+	 .section-menu ul{
+	  list-style: none;
+	 }
+	 .section-menu li{
+	  float: left;
+	  margin-left: 20px;
+	  margin-top: 5px;
+	 }
+	 .section-menu li a,.section-menu li a:active,.section-menu li a:visited,.section-menu li a:hover{
+	  color: #CC0033;
+	 }
+	.sub-list{
+	  margin-left: 15px;
+	}
+	
+	#tariff-table{
+	 /*border: 1px solid #000;*/
+	 width: 64%;
+	 float:right;
+	 padding-right: 50px;
+	}
+	#tariff-form{
+	 /*border: 1px solid #000;*/
+	 float: left;
+	 width: 30%;
+	}
+	.top-menu
+	{ 
+	 height: 32px;
+	 background:url(image/menu_bg.jpg);
+	 background-repeat: repeat-x; /* повторение фона */
+	 text-transform: uppercase;
+	}
+	.top-menu li
+	{
+	 display: block;
+	 vertical-align: middle;
+	 margin-left: 10px;
+	 list-style: none;
+	 float: left;
+	}
+	.top-menu li a
+	{
+	 display: block;
+	 padding: 5px 10px ;
+	 text-decoration: none;
+	 font-size: large; 
+	 font-weight: 500;
+	 color: #fff;
+	}
+	.top-menu li a:hover
+	{
+	 /**background: url(image/menu_hover.png);
+	 /**background-repeat: repeat-x;*/
+	 font-weight: 500; 
+	 color: #e3e3e3;
+	}
+	 #wr{
+	 margin-right: 205px;
+	}
+	.my-table {
+	 border-collapse: collapse;
+	 border: 1px solid #000;
+	 width: 95%;
+	}
+	.my-table th{
+	 font-weight: bold;
+	 border: 1px solid black;
+	}
+	.my-table td{
+	 height: 30px;
+	 margin: 0;
+	 border: 1px solid black;
+	 text-align: center;
+	}
+	#title-table{
+	 width: 250px;
+	}
+	.my-table .hd{
+	 width: 120px; 
+	}
+	.rate-name{
+	 font-weight: bold;
+	}
+	 .wrapper
+	{
+	 width: 1000px;
+	 /*min-height: 550px;*/
+	 height: auto;
+	 margin: 0 auto;
+	 padding: 0;
+	 }

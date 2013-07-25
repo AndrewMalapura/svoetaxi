@@ -1,0 +1,275 @@
+<?
+ session_start();
+ echo "<!DOCTYPE HTML>";
+?>
+<html>
+ <head>
+  <title> администрирование сайта </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="../javascript/cookies.js"></script> 
+  <script type="text/javascript" src="../javascript/admin.js"></script> 
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  
+ </head>
+ <body>
+<?
+	// Соответствие регуляному выражению( маска ввода )
+	function isValid($val){
+		$expression = "/^[1-9]?[0-9]+([,\.][0-9]){0,3}/";
+	   return preg_match($expression, $val);
+	}
+	// преобразование в decimal format
+	function unit ($value, $decimal_point = 2) {
+		return $value = number_format (str_replace (",", ".", trim ($value)), $decimal_point);
+}
+
+	include_once("../blocks/DBA.php");
+	$dao = new DBA();
+   // Инициируем сессию	
+   if($_SESSION[name]!=""){					// Добавить пользователя
+		  if(isset($_POST["registration"]) and ($_POST["password"] == $_POST["r_password"]))
+		  {
+			$name = $_POST["name"];
+			$login = $_POST["login"];
+			$passwd = md5($_POST["password"]);
+			$role = "administrator";
+			$dao->addUser($name,$login,$passwd,$role);
+			echo "<script language='JavaScript'>location.replace('./administration.php')</script>";
+			}
+					//	Добавить тарифный план
+		  if(isset($_POST["submit"]))
+		  {
+			$name_tariff = $_POST["tariff_name"];
+			$min = unit($_POST["min"]);
+			$in_city = unit($_POST["in_city"]);
+			$out_city = unit($_POST["out_city"]);
+			$wait = unit($_POST["wait"]);
+			$hour = unit($_POST["hour"]);
+			
+			$valid = isValid($min)*isValid($in_city)*isValid($out_city)*isValid($wait)*isValid($hour);
+			if($valid){   
+					$dao->createRate($name_tariff,$min,$in_city,$out_city,$wait,$hour);
+					echo "<script language='JavaScript'>location.replace('./administration.php')</script>";
+			}else{		
+					echo "<script type-'javascript'>alert('Данные не валидны !!!')</script>";
+			}
+		  }
+		  if(isset($_POST["load"])){
+		  //echo '<pre>'; 
+		  if ($_FILES['file']['error'] > 0) {
+  echo "Transfer error: ".$_FILES['file']['error']." - upload cancelled<br>";
+		}
+		 
+	   if ((($_FILES["file"]["type"] == "image/gif")
+		|| ($_FILES["file"]["type"] == "image/jpeg")
+		|| ($_FILES["file"]["type"] == "image/jpg")
+		|| ($_FILES["file"]["type"] == "image/png")
+		|| ($_FILES["file"]["type"] == "image/pjpeg"))
+				&& ($_FILES["file"]["size"] < 40000))
+		  {
+		  
+		   $path = "/image/gallery/";
+		   $owner = $_POST['owner'];
+		   $call = $_POST['call'];
+		   $model = $_POST['model'];
+		   $img = $path . $_FILES["file"]["name"];
+		   $fleet_name = $_POST['categor'];
+			/*	echo
+				echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+				echo "Type: " . $_FILES["file"]["type"] . "<br>";
+				echo "Size: " . round($_FILES["file"]["size"] / 1024, 2) . " Kb<br>";
+				echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+			*/
+				if (file_exists("upload/" . $_FILES["file"]["name"]))
+				  {
+				  echo $_FILES["file"]["name"] . " already exists. ";
+				  }
+				else
+				  {
+				move_uploaded_file($_FILES["file"]["tmp_name"],
+				  $_SERVER['DOCUMENT_ROOT'].$path . $_FILES["file"]["name"]);
+				  
+				$dao->addCar($owner,$call,$model,$img,$fleet_name);
+				  //echo "Stored in: " . $path . $_FILES["file"]["name"];
+				  }
+				
+		 // echo "<script type-'javascript'>alert('загрузка файла')</script>";
+		  }
+	 }
+	 if(isset($_POST["find-categor"])){
+		//$owner = $_POST["find-owner"];
+		//$call = $_POST["find-call"];
+		//$model = $_POST["find-model"];
+		$fleet_name = $_POST["find-categor"];
+	 // echo $fleet_name ;
+	 
+	 }
+	 
+	 
+	}else{
+		session_destroy();
+		die("good bye !!!");
+	}
+?>
+<div class="wrapper"> 
+<div id="command-div">
+    <input id="brts" class="command-button" type="button" name="b_rate" value="управление тарифами" onclick="showDiv(this.id)"/>
+	<input id="busr" class="command-button" type="button" name="b_user" value="управление пользователями" onclick="showDiv(this.id)"/>
+	<input id="bcar" class="command-button" type="button" name="b_car" value='галерея "Aвтопарк"' onclick="showDiv(this.id)"/>	
+	<br>
+</div>
+<div class="admin-page" id="usr" >
+	<div class="admin-form">
+	<form method="post" action="../admin/administration.php" class="new-admin">
+		<legend><strong>Добавить админа</strong></legend><br>
+		<input type="text" name="name" placeholder="|имя пользователя" required/><br>
+		<input type="text" name="login" placeholder="|логин" required/><br>
+		<input type="password" name="password" placeholder="|пароль" required/><br>
+		<input type="password" name="r_password" placeholder="|повторите пароль" required/><br>
+		<input type="submit" name="registration" value="Добавить"/><input type="reset" value="Очистить">
+	</form>
+	</div>
+	<div class="admin-data-div">
+	<?
+		$users = $dao->getUsers();
+		echo "<form id='usr' method='POST'>";
+		echo "<table class='admin-table'>";
+		echo "<tr id='head'><th>name</th><th>login</th><th>role</th><th>Edit</th><th>Delete</th></tr>";
+		foreach($users as $value){
+		echo "<tr><td>$value[1]</td><td>$value[2]</td><td>$value[4]</td>
+			  <td><a href='../admin/usr_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a></td>
+			  <td><a href='../admin/usr_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></td></a></tr>";
+		}
+		echo "</table>";
+		echo "</form>";
+	?>
+	</div>
+</div>
+<div class="admin-page" id="trf">
+	<div class="admin-form">
+	<form method="post" action="../admin/administration.php" class="new-rate">
+		<legend><strong>Новый тариф</strong></legend><br>
+<?		
+		echo "<input type='text' name='tariff_name' placeholder='|название тарифного плана'  value = '".$name_tariff."' required/><br>
+		      <input type='text' name='min' placeholder='|минимальная стоимость' value='".$min."' required/><br>
+		      <input type='text' name='in_city' placeholder='|по городу (1 км.)' value='".$in_city."' required/><br>
+			  <input type='text' name='out_city' placeholder='|за город (1 км.)' value='".$out_city."' required/><br>
+		      <input type='text' name='wait' placeholder='|ожидание (1 мин.)' value='".$wait."' required/><br>
+		      <input type='text' name='hour' placeholder='|почасовая оплата' value='".$hour."' required/><br>";
+ ?>
+		<input type="submit" name="submit" value="Добавить"/><input type="reset" value="Очистить">
+	</form>
+	</div>
+	<div class="admin-data-div">
+	<?
+		$rates = $dao->readRates();
+		echo "<form id='rts' method='POST'>";
+		echo "<table class='admin-table'>";
+		echo "<tr id='head'><th>Наименование</th><th>Мин. стоимость</th><th>По городу</th><th>За городом</th><th>Ожидание</th><th>Почасовая</th><th>Edit</th><th>Delete</th></tr>";
+		foreach($rates as $val){
+		echo "<tr><td>$val[1]</td><td>$val[2]</td><td>$val[3]</td><td>$val[4]</td><td>$val[5]</td><td>$val[6]</td>
+			  <td><a href='../admin/rate_edit.php?id=".$val[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a></td>
+			  <td><a href='../admin/rate_delete.php?id=".$val[0]."'  title=\"удалить\"><img src='../image/deletered.png' alt='delete'></td></a></tr>";
+		}
+		echo "</table>";
+		echo "</form>";
+	?>
+	</div>
+</div>
+<div class="admin-page" id="cars" >
+	<div class="admin-form">
+		<div id="add-img">
+	  <form enctype="multipart/form-data" method="post" action="../admin/administration.php" class="new-car" >
+		<legend><strong>Добавить картинку в галерею</strong></legend><br>
+		<input type="text" name="owner" placeholder="|владелец" required /><br> 
+		<input type="text" name="call" placeholder="|позывной" required /><br>
+		<input type="text" name="model" placeholder="|модель" required /><br>
+		<?
+			$categories = $dao->getCategories();
+		echo "<select name='categor' id='lstCategories' onchange='onChange()' required>";
+			$val=0;
+			$hand = "свой вариант";
+			if(count($categories)){
+			foreach($categories as $category){
+			echo "<option value='".$category[0]."' >$category[0]</option>";
+			}
+			echo "<option value='".$hand."' >$hand</option>";
+			} else {
+			 echo "<option value='' ></option>";
+			 echo "<option value='".$hand."' >$hand</option>";
+			}
+		?>
+             </select>
+		<input type="hidden" name="MAX_FILE_SIZE" value="40000" />
+		<input type="file" name="file" id="file" required/><br>		
+	    <input type="submit" name="load" value="Загрузить фото"/><input type="reset" value="Очистить"/>
+	  </form>
+	    </div><br>
+		<div id="find">
+	  <form id='find-form' method='POST' action='../admin/administration.php'>
+				<legend><strong>Показать категорию </strong></legend><br>
+				<!--input type="text" name="find-call" placeholder="|позывной" /><br>
+				<input type="text" name="find-owner" placeholder="|владелец" /><br>
+				<input type="text" name="find-model" placeholder="|модель" /><br--->
+		<?
+		    echo "<select name='find-categor' id='fndCategories' onchange='sortCar(this.form)'>";
+			echo "<option value='Все категории' >Все категории</option>";
+			foreach($categories as $category){
+			$opt = "<option value='".$category[0]."' ";
+			if($fleet_name == $category[0]){$opt .= " selected='selected'>$category[0]</option>";}
+			else{$opt .= ">$category[0]</option>";};
+			echo $opt;
+			}
+		?>
+             </select><br>
+				<!--input type="submit" name="find-submit" value="Поиск"/-->
+
+	  </form><br>
+		</div>
+	</div>
+	<div class="admin-data-div">
+	<?
+		//echo "fleet_name:".$fleet_name;
+		if($fleet_name == "Все категории") $fleet_name = '';
+		$cars = $dao->findCar($fleet_name);
+		// print_r ($cars);
+			//echo "<br><br>";
+			echo "<form id='car-form' method='POST'>";
+			echo "<table class='admin-table'>";
+			//echo "<tr id='head'><th>image</th><th>data</th>'><th>image</th><th>data</th></</tr>";
+			$column = 0;
+		foreach($cars as $value){
+			if(!$column){
+		echo "
+			 <tr><td><img src='".$value[4]."' alt='Нет фото' width='150' height='100' /></td>
+			 <td class='descript'><span class='red-str'>позывной:</span> $value[2]<br>
+			 <span class='red-str'>владелец:</span> $value[1]<br>
+			 <span class='red-str'>модель:</span> $value[3]<br>
+			 <span class='red-str'>категория:</span> $value[5]<br>
+			 <span class='red-str'>path:</span> $value[4]<br>
+			 <a href='../admin/usr_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>
+			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></td></a>			   
+			   ";
+			 $column++;
+			 }else{
+			 		echo "
+			 <td><img src='".$value[4]."' alt='Нет фото' width='150' height='100' /></td>
+			 <td class='descript'><span class='red-str'>позывной:</span> $value[2]<br>
+			 <span class='red-str'>владелец:</span> $value[1]<br>
+			 <span class='red-str'>модель:</span> $value[3]<br>
+			 <span class='red-str'>категория:</span> $value[5]<br>
+			  <span class='red-str'>path:</span> $value[4]<br>
+			 <a href='../admin/img_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>    
+			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></a></td></tr>			   
+				";
+			 $column--;	
+			  }
+		}
+		echo "</table>";
+		echo "</form>";
+	?>
+	</div>
+</div>
+</div>	
+ </body>
+</html>

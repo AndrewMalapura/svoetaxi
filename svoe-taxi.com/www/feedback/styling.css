@@ -1,0 +1,30 @@
+	.feedback-form { 
+	position: relative;
+	width:90% !important;
+	border:2px ridge #aaa;
+	padding:20px;
+	background:#ccc;
+	font-family: sans,times,serif; 
+	}
+	.feedback-form fieldset { 
+	border:1px groove #aaa;
+	margin:0;
+	padding:5px; 
+	}
+	.feedback-form label { 
+	display:block; 
+	}
+	.feedback-form input.text,textarea {
+	width: 300px !important;
+	font: 12px/12px 'courier new',courier,monospace;
+	color: #333;
+	padding: 3px;
+	margin: 1px 0; 
+}
+	.feedback-form input.submit { 
+	padding:2px 5px;
+	font:bold 12px/12px arial,sans-serif; 
+	}
+	.kcaptcha{
+	margin:4px;
+	}
