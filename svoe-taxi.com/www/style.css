@@ -130,25 +130,38 @@
 	  color: #666666;
 	 }
 	 .edit-form {
-	 margin: 40px auto;
-	 border: 1px solid #000;
-	 width: 60%;
+	 margin: 0 auto;
+	 /*border: 1px solid #000;*/
+	 width: 400px;
 	}
 	.edit-form form{
-	 padding: 4px;
 	 border: 1px solid #000;
 	 text-align: center;
 	}
-	.edit-form table,tr{
-	 width: auto;
-	 margin: 10px auto;
+	.edit-form table{
+	 margin: 0 auto;
 	}
 	.edit-form td{
 	 border-style: hidden;
+	 /*border: 1px solid #000;*/
+	 float: left;
+	 height: auto;
+	 }
+	 .edit-form label{
+	 font: bold italic 10pt/9pt sans-serif; 
 	 }
 	.edit-form input{
 	 width: 175px;
-	 margin: 3px;
+	 margin: 1px;
+	}
+	.edit-form a{
+	 font: 11pt sans-serif;
+	}
+	.edit-form a:hover{
+	 font-weight: bold;
+	}
+	.error-valid{
+	  border: 2px solid red;
 	}
 	 .feedback-image{
 	  margin-top: 20px;

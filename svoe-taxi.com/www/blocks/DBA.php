@@ -42,6 +42,18 @@ Class DBA{
   
   function updateRates(){
 	$this->connect();
+	$sql = "UPDATE rates SET";
+	$sql .= " name='".$user['name']."', ";
+	$sql .= " login='".$user['login']."', ";
+	if (isset($user['password']))  $sql .= "password='".$user['password']."', ";
+		$sql .= " role='".$user['role']."'";
+		$sql .= " WHERE id_user='".$user['id_user']."'"; 
+	  $query = mysql_query($sql);
+	if(! $query )
+	{ 
+		$this->close_connection();
+		die('Could not update data: ' . mysql_error());
+	}
 	$this->close_connection();
   }
   
@@ -94,7 +106,6 @@ Class DBA{
   }
   
   function updateUser($user){
-   print_r($user['name']);
    $this->connect();
   $sql = "UPDATE users SET";
   $sql .= " name='".$user['name']."', ";

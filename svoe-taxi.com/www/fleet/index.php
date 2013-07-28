@@ -71,8 +71,14 @@
 		
 	$name_category = $categories[$_GET[cat]][0];
 	$foto = $dao->findCar($name_category);
+	 $img_width = 250;
+	 $img_height = 167;
+	 if($_GET[cat] == ''){
+	     $img_width = 100;
+		 $img_height = 67;
+	 }
 	foreach($foto as $img){
-		echo "<img class='foto-cars' src='".$img[4]."' alt='Нет фото' width='100' height='67' />";
+		echo "<img class='foto-cars' src='".$img[4]."' alt='Нет фото' width='".$img_width."' height='".$img_height."' />";
 	}
 	
 		?>

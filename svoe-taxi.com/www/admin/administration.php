@@ -39,18 +39,30 @@
 					//	Добавить тарифный план
 		  if(isset($_POST["submit"]))
 		  {
-			$name_tariff = $_POST["tariff_name"];
-			$min = unit($_POST["min"]);
-			$in_city = unit($_POST["in_city"]);
-			$out_city = unit($_POST["out_city"]);
-			$wait = unit($_POST["wait"]);
-			$hour = unit($_POST["hour"]);
-			
+					$not_valid = " class='error-valid' ";
+					$name_tariff = $_POST["tariff_name"];
+					$min = $_POST["min"];
+					  $err_min = !isValid($min) ? $not_valid : ""; // если не валидны добавляем класс error
+					$in_city = $_POST["in_city"];
+					  $err_in_city = !isValid($in_city) ? $not_valid : "";
+					$out_city = $_POST["out_city"];
+					  $err_out_city = !isValid($out_city) ? $not_valid : "";
+					$wait = $_POST["wait"];
+					  $err_wait = !isValid($wait) ? $not_valid : "";
+					$hour = $_POST["hour"];
+					  $err_hour = !isValid($hour) ? $not_valid : "";
 			$valid = isValid($min)*isValid($in_city)*isValid($out_city)*isValid($wait)*isValid($hour);
-			if($valid){   
+			if($valid){
+					$name_tariff = $_POST["tariff_name"];
+					$min = unit($_POST["min"]);
+					$in_city = unit($_POST["in_city"]);
+					$out_city = unit($_POST["out_city"]);
+					$wait = unit($_POST["wait"]);
+					$hour = unit($_POST["hour"]);
 					$dao->createRate($name_tariff,$min,$in_city,$out_city,$wait,$hour);
 					echo "<script language='JavaScript'>location.replace('./administration.php')</script>";
 			}else{		
+					
 					echo "<script type-'javascript'>alert('Данные не валидны !!!')</script>";
 			}
 		  }
@@ -150,12 +162,13 @@
 	<form method="post" action="../admin/administration.php" class="new-rate">
 		<legend><strong>Новый тариф</strong></legend><br>
 <?		
+		
 		echo "<input type='text' name='tariff_name' placeholder='|название тарифного плана'  value = '".$name_tariff."' required/><br>
-		      <input type='text' name='min' placeholder='|минимальная стоимость' value='".$min."' required/><br>
-		      <input type='text' name='in_city' placeholder='|по городу (1 км.)' value='".$in_city."' required/><br>
-			  <input type='text' name='out_city' placeholder='|за город (1 км.)' value='".$out_city."' required/><br>
-		      <input type='text' name='wait' placeholder='|ожидание (1 мин.)' value='".$wait."' required/><br>
-		      <input type='text' name='hour' placeholder='|почасовая оплата' value='".$hour."' required/><br>";
+		      <input type='text' ".$err_min." name='min' placeholder='|минимальная стоимость' value='".$min."' required/><br>
+		      <input type='text' ".$err_in_city." name='in_city' placeholder='|по городу (1 км.)' value='".$in_city."' required/><br>
+			  <input type='text' ".$err_out_city."  name='out_city' placeholder='|за город (1 км.)' value='".$out_city."' required/><br>
+		      <input type='text' ".$err_wait." name='wait' placeholder='|ожидание (1 мин.)' value='".$wait."' required/><br>
+		      <input type='text' ".$err_hour." name='hour' placeholder='|почасовая оплата' value='".$hour."' required/><br>";
  ?>
 		<input type="submit" name="submit" value="Добавить"/><input type="reset" value="Очистить">
 	</form>

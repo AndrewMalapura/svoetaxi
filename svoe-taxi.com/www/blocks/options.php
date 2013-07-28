@@ -1,5 +1,5 @@
 <?
-$contact = "<span class='red-str'>(050)-701-11-18  (066)-178-87-68</span>";
+$contact = "<span class='red-str'>(050)-701-11-18, (066)-178-87-68</span>";
 
 $main_items = array(
 "главная"=>"/",
