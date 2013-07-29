@@ -14,27 +14,27 @@
 	       break;
 	   case 'tariff':
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='silver';
+		   document.getElementById('busr').style.background='#ccc';
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='silver';
+		   document.getElementById('bcar').style.background='#ccc';
 		   document.getElementById('trf').style.display='block';
 		   document.getElementById('brts').style.background='white';
 		  // setCookie('param','tariff','');
 	       break;
 	  case 'cars':
 		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background='silver';
+		   document.getElementById('brts').style.background='#ccc';
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='silver';
+		   document.getElementById('busr').style.background='#ccc';
 		   document.getElementById('cars').style.display='block';
 		   document.getElementById('bcar').style.background='white';
 		 //  setCookie('param','cars','');
 	       break;
 	  default :
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='silver';
+		   document.getElementById('busr').style.background='#ccc';
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='silver';
+		   document.getElementById('bcar').style.background='#ccc';
 		   document.getElementById('trf').style.display='block';
 		   document.getElementById('brts').style.background='white';
 		   setCookie('param','tariff','');
@@ -50,17 +50,17 @@
 	       document.getElementById('usr').style.display='block';
 		   document.getElementById('busr').style.background='white';
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='silver';
+		   document.getElementById('bcar').style.background='#ccc';
 		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background='silver';
+		   document.getElementById('brts').style.background='#ccc';
 		   setCookie('param','user','');
 	       break;
 	   case 'brts':
 	       //document.getElementById(id).value="Тарифы";
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='silver';
+		   document.getElementById('busr').style.background='#ccc';
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='silver';
+		   document.getElementById('bcar').style.background='#ccc';
 		   document.getElementById('trf').style.display='block';
 		   document.getElementById('brts').style.background='white';
 		   setCookie('param','tariff','');
@@ -68,9 +68,9 @@
 	   case 'bcar':
 	       //document.getElementById(id).value="Тарифы";
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='silver';
+		   document.getElementById('busr').style.background='#ccc';
 		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background='silver';
+		   document.getElementById('brts').style.background='#ccc';
 		   document.getElementById('cars').style.display='block';
 		   document.getElementById('bcar').style.background='white';
 		   setCookie('param','cars','');

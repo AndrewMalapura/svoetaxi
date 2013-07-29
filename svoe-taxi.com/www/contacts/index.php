@@ -16,10 +16,11 @@
 				
 	<div id="wr">		
 		<div class="content">
-		  <span class = "page-title">	
+		<span class = "page-title">	
 			Контакты
-		  </span>		
-
+		</span><br/>
+		
+		 <img id="contact-img" src="../image/kontakt.png" alt="Нет изображения">	
 		 </div>
 		<div class="img_bot">
 		

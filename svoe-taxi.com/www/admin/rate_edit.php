@@ -50,7 +50,7 @@
 		<tr><td><input id='out_city' type='text' name='out_city' placeholder='|".$tariff_data[out_city]."' /></td></tr>
 		<tr><td><label for='void' >Простой: </label></td></tr>
 		<tr><td><input id='void' type='text' name='void' placeholder='|".$tariff_data[void]."' /></td></tr>
-		<tr><td><label for='hour' >Простой: </label></td></tr>
+		<tr><td><label for='hour' >Почасовая оплата: </label></td></tr>
 		<tr><td><input id='hour' type='text' name='hour' placeholder='|".$tariff_data[hour]."' /></td></tr>
 		<tr><td><input class='buttn' type='submit' name='rate_change' value='Принять' /></td></tr>
 		<tr><td><input class='buttn' type='reset' value='Очистить' /></td></tr>";

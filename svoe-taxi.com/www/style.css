@@ -31,9 +31,9 @@
 	}
 	.admin-page{
      width: 100%;
-	 /*border: 2px solid #ccc;	
-	 margin: 3px;
-	 padding: 5px;*/
+	 border: 2px solid #ccc;	
+	 /*margin: 3px;*/
+	 padding: 15px 0;
 	 overflow:hidden;
 	}
 	.admin-table 
@@ -77,14 +77,17 @@
 	 height: 73px;
 	 background: url(image/control.jpg);
 	 }
+	 #contact-img{
+	  margin: 10px;
+	 }
 	 #command-div{
-	  margin: 30px;
+	  margin: 12px 0 0 0;
 	 }
 	 .command-button{
-	  padding: 3px 20px;
-	  width: 300px;
+	  width: auto;
+	  border-top: 1px solid #000;
 	  font-weight: bold;
-	  background-color: #ddd;
+	  background-color: #ccc;
 	 }
 	.call{
 	 margin-top: 10px;
@@ -148,11 +151,15 @@
 	 height: auto;
 	 }
 	 .edit-form label{
-	 font: bold italic 10pt/9pt sans-serif; 
+	 font: bold 10pt/9pt sans-serif; 
 	 }
 	.edit-form input{
 	 width: 175px;
 	 margin: 1px;
+	}
+	.edit-form input[type="submit"],input[type="reset"]{
+	 width: 100px;
+	 margin: 5px auto;
 	}
 	.edit-form a{
 	 font: 11pt sans-serif;
