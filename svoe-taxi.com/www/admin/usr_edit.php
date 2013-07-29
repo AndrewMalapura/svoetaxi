@@ -5,9 +5,9 @@
    if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
    include_once("../blocks/DBA.php");
    $dao = new DBA();
-   $user_data = $dao->findUser($_POST['usr_id']);
-   //print_r($user_data);
+   
    if(isset($_POST['change'])){
+		$user_data = $dao->findUser($_POST['usr_id']);
 	  
      if($_POST['name']!='')  { $user_data['name'] = $_POST['name'];}
      if($_POST['login']!='')   $user_data['login'] = $_POST['login'];
@@ -16,8 +16,10 @@
       } else {
 	  $user_data['password'] = null;	
       }
-	 $dao->updateUser($user_data);
+	  $dao->updateUser($user_data);
    echo "<script language='JavaScript'>location.replace('./administration.php')</script>";
+   }else{    
+	 $user_data = $dao->findUser($_GET['id']);
    }
 ?>
 <!DOCTYPE HTML>
@@ -31,9 +33,7 @@
 <table>
 	<form method="post" name="editform" action="../admin/usr_edit.php" class="change-admin">
 	<?
-  echo "<input type='hidden' name='usr_id' value='".$_GET['id']."'/>";	
-	$dao = new DBA();
-	$user_data = $dao->findUser($_GET['id']);
+  echo "<input type='hidden' name='usr_id' value='".$user_data['id_user']."'/>";
   echo "<tr><td><label for='name' >Имя пользователя:</label></td></tr>
 		<tr><td><input id='name' type='text' name='name' placeholder='|".$user_data[name]."' /></td></tr>
 		<tr><td><label for='login' >Логин:</label></td></tr>

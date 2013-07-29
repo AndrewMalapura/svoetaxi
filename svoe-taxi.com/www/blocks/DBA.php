@@ -173,7 +173,6 @@ if(! $query )
   function getPath($id){
 	 $q = mysql_query("SELECT img FROM cars WHERE id='".$id."'") or die(mysql_error());
 	 $rez = mysql_fetch_array($q);
-	 print_r($_SERVER['DOCUMENT_ROOT'].$rez['img']);
 	 return $_SERVER['DOCUMENT_ROOT'].$rez['img'];
   }
   
@@ -203,6 +202,14 @@ if(! $query )
 	for( $i = 0; $tablerows = mysql_fetch_row($this->sql); $i++ ){  $cars[$i] = $tablerows; }
 	$this->close_connection();
   return $cars;
+  }
+  
+  function searchCar($id_car){
+	  $this->connect();
+		$query = mysql_query("SELECT * FROM cars WHERE id='".$id_car."'") or die(mysql_error());
+		$car = mysql_fetch_array($query);
+	  $this->close_connection();
+    return $car;
   }
   
   } // end class

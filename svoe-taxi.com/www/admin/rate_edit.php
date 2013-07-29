@@ -13,9 +13,7 @@
     if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
    include_once("../blocks/DBA.php");
    $dao = new DBA();
-   if(isset($_POST[rate_change])){
-	
-   
+   if(isset($_POST[rate_change])){  
 		$tariff_data = $dao->findRate($_POST['rate_id']);
     if($_POST[name] != ''){$tariff_data[name] = $_POST[name];}
 	if($_POST[min] != ''){$tariff_data[min] = $_POST[min];}

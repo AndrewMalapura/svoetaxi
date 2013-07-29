@@ -260,7 +260,7 @@
 			 <span class='red-str'>модель:</span> $value[3]<br>
 			 <span class='red-str'>категория:</span> $value[5]<br>
 			 <span class='red-str'>path:</span> $value[4]<br>
-			 <a href='../admin/usr_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>
+			 <a href='../admin/img_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>
 			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></td></a>			   
 			   ";
 			 $column++;
