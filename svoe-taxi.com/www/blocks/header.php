@@ -35,7 +35,7 @@ foreach($submenu_items[$current_key] as $item=>$uri){
 //$tag = ("'".$link."'" === $uri) ? '<li class="active-submenu">' : '<li>'; // если это текущая страница 
 $tag = ($_GET[cat] == $itr++) ? '<li class="active-submenu">' : '<li>'; // если это текущая страница 
 echo $tag;
-echo "<a href=$uri>$item</a>";
+echo "<a href='".$uri."'>$item</a>";
 echo '</li>';
 } // end foreach
 }else{
