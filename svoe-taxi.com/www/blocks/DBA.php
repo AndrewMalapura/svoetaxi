@@ -40,15 +40,18 @@ Class DBA{
 	return $rates;
   }
   
-  function updateRates(){
+  function updateRates($tariff){
 	$this->connect();
 	$sql = "UPDATE rates SET";
-	$sql .= " name='".$user['name']."', ";
-	$sql .= " login='".$user['login']."', ";
-	if (isset($user['password']))  $sql .= "password='".$user['password']."', ";
-		$sql .= " role='".$user['role']."'";
-		$sql .= " WHERE id_user='".$user['id_user']."'"; 
+	$sql .= " name='".$tariff['name']."', ";
+	$sql .= " up_to=".$tariff['up_to'].", ";
+	$sql .= " city=".$tariff['city'].", ";
+	$sql .= " out_city=".$tariff['out_city'].", ";
+	$sql .= " void=".$tariff['void'].", ";
+	$sql .= " hour=".$tariff['hour'];
+	$sql .= " WHERE id='".$tariff['id']."'"; 
 	  $query = mysql_query($sql);
+	 //print_r($sql);
 	if(! $query )
 	{ 
 		$this->close_connection();

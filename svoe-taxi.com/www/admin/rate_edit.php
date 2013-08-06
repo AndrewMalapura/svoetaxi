@@ -16,11 +16,13 @@
    if(isset($_POST[rate_change])){  
 		$tariff_data = $dao->findRate($_POST['rate_id']);
     if($_POST[name] != ''){$tariff_data[name] = $_POST[name];}
-	if($_POST[min] != ''){$tariff_data[min] = $_POST[min];}
-	if($_POST[city] != ''){$tariff_data[city] = $_POST[city];}
-	if($_POST[out_city] != ''){$tariff_data[out_city] = $_POST[out_city];}
-	if($_POST[void] != ''){$tariff_data[void] = $_POST[void];}
-	if($_POST[hour] != ''){$tariff_data[hour] = $_POST[hour];}
+	if($_POST[min] != ''){$tariff_data[up_to] = unit($_POST[min]);}
+	if($_POST[city] != ''){$tariff_data[city] = unit($_POST[city]);}
+	if($_POST[out_city] != ''){$tariff_data[out_city] = unit($_POST[out_city]);}
+	if($_POST[void] != ''){$tariff_data[void] = unit($_POST[void]);}
+	if($_POST[hour] != ''){$tariff_data[hour] = unit($_POST[hour]);}
+	  $dao->updateRates($tariff_data);
+	echo "<script language='JavaScript'>location.replace('./administration.php')</script>";
    }else{
 	$tariff_data = $dao->findRate($_GET["id"]);
    }
@@ -41,9 +43,9 @@
   echo "<tr><td><label for='name' >Название тарифа: </label></td></tr>
 		<tr><td><input id='name' type='text' name='name' placeholder='|".$tariff_data[name]."' /></td></tr>
 		<tr><td><label for='min' >За первые 2 км.: </label></td></tr>
-		<tr><td><input id='min' type='text' name='login' placeholder='|".$tariff_data[up_to]."' /></td></tr>
+		<tr><td><input id='min' type='text' name='min' placeholder='|".$tariff_data[up_to]."' /></td></tr>
 		<tr><td><label for='city' >По городу: </label></td></tr>
-		<tr><td><input id='city' type='text' name='city' placeholder='".$tariff_data[city]."' /></td></tr>
+		<tr><td><input id='city' type='text' name='city' placeholder='|".$tariff_data[city]."' /></td></tr>
 		<tr><td><label for='out_city' >За город: </label></td></tr>
 		<tr><td><input id='out_city' type='text' name='out_city' placeholder='|".$tariff_data[out_city]."' /></td></tr>
 		<tr><td><label for='void' >Простой: </label></td></tr>
