@@ -17,8 +17,8 @@ include_once "DBA.php";
 	$iterator = 0;
 	foreach($categories as $ctg){
 	  $fleet_arr[$ctg[0]] = "/fleet/index.php?cat=".$iterator++;
-	  
 	}
+	
 //        Определение пунктов субменю в многомерном массиве
 $submenu_items = array(
 		"главная"=>null,

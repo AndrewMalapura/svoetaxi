@@ -368,6 +368,10 @@
 	.red-str {
 	 color: red;
 	}
+	#running{
+	 margin-top: 5px;
+	 background-color: #ffcc00;
+	}
 	 .sidebar
 	{
 	 width: 200px;
