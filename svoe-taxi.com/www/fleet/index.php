@@ -17,7 +17,9 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script type="text/javascript">window.jQuery || document.write('<script src="../javascript/jquery-1.10.1.min.js">x3C/script>')</script>
   <script type="text/javascript" src="../javascript/jquery-1.10.1.min.js"></script>
- 
+  <script type="text/javascript" src="../javascript/jquery-migrate-1.2.1.js"></script>
+  <script type="text/javascript" src="../javascript/jscroller-0.4.js"></script>
+  <script type="text/javascript" src="../javascript/running_line.js"></script>
   
 				<!-- FlexSlider -->
  

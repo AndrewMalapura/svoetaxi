@@ -94,7 +94,9 @@ echo '</ul></div>';
 		
 }
  ?>
-  <marquee id="running" behavior="alternate" direction="left" onmouseout="this.start()" onmouseover="this.stop()">
-    <? echo $run_text = "Бегущая строка ...";?>
-  </marquee>
+  <div class="marquee">
+	<div class="marquee-div">
+		<? echo $run_text = "Здесь будет бегущая строка ...";?>
+	</div>
+  </div>
  <div class="col_title"></div>

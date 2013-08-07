@@ -64,6 +64,10 @@ unset($_SESSION['captcha_keystring']);
   <link rel="shortcut icon" href="../image/taxi.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="styling.css">
   <link rel="stylesheet" type="text/css" href="http://www.gismeteo.ua/static/css/informer2/gs_informerClient.min.css">
+  <script type="text/javascript" src="../javascript/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="../javascript/jquery-migrate-1.2.1.js"></script>
+  <script type="text/javascript" src="../javascript/jscroller-0.4.js"></script>
+  <script type="text/javascript" src="../javascript/running_line.js"></script>
  </head>
  <body>
 	<div class="wrapper">		

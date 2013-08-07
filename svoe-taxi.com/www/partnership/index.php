@@ -9,12 +9,10 @@
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="shortcut icon" href="../image/taxi.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="http://www.gismeteo.ua/static/css/informer2/gs_informerClient.min.css">
-   <!-- CSS for slidesjs.com example
-  <link rel="stylesheet" href="../css/example.css">
-  <link rel="stylesheet" href="../css/font-awesome.min.css">
-  
-  <link rel="stylesheet" type="text/css" href="../css/slider-style.css"> -->
-  <script type="text/javascript" src="../javascript/jquery-1.10.1.min.js"></script>
+  <<script type="text/javascript" src="../javascript/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="../javascript/jquery-migrate-1.2.1.js"></script>
+  <script type="text/javascript" src="../javascript/jscroller-0.4.js"></script>
+  <script type="text/javascript" src="../javascript/running_line.js"></script>
   <script type="text/javascript" src="../javascript/jquery.slides.js"></script>
   <script type="text/javascript">
     $(function() {
