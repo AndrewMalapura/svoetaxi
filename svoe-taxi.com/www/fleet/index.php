@@ -68,7 +68,7 @@
 		<span class="red-str">Одним из основных преимуществ «Своё Такси», помимо доступных цен, является внушительный автопарк.</span>
 		<br><br>
 		<?
-		
+	$cont_text = "";
 	$name_category = $categories[$_GET[cat]][0];
 	$foto = $dao->findCar($name_category);
 	 $img_width = 250;
@@ -76,6 +76,11 @@
 	 if($_GET[cat] == ''){
 	     $img_width = 100;
 		 $img_height = 67;
+		 $cont_text = "<br>
+		В Артёмовске по телефону Вы можете заказать такие автомобили, как Hyundai Sonata, Toyota Сamry, Lexus GS, Chevrolet lacetti,Volkswagen Multivan. 
+		Стандарт класс, бизнес класс, ViP и минивены – все авто уже ждут Вашего заказа.
+		<br>
+		С нашей помощью Вы сможете просто доехать от одного объекта до другого, попасть в аэропорт в короткие сроки, встретить или проводить деловых партнеров.";
 	 }
 	foreach($foto as $img){
 		echo "<img class='foto-cars' src='".$img[4]."' alt='Нет фото' width='".$img_width."' height='".$img_height."' />";
@@ -83,11 +88,7 @@
 	
 		?>
 		<span class="content-text"> 
-		<br>
-		В Артёмовске по телефону Вы можете заказать такие автомобили, как Hyundai Sonata, Toyota Сamry, Lexus GS, Chevrolet lacetti,Volkswagen Multivan. 
-		Стандарт класс, бизнес класс, ViP и минивены – все авто уже ждут Вашего заказа.
-		<br>
-		С нашей помощью Вы сможете просто доехать от одного объекта до другого, попасть в аэропорт в короткие сроки, встретить или проводить деловых партнеров.
+		<? echo $cont_text;?> 
 		</span>
 		 </div>
 		<div class="img_bot">

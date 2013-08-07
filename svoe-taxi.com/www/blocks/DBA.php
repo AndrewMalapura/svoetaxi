@@ -192,8 +192,8 @@ if(! $query )
   function getCategories(){
 	$this->connect();
 	$this->sql = mysql_query("SELECT DISTINCT fleet_name FROM cars") or die(mysql_error());
-	for( $i = 0; $tablerows = mysql_fetch_array($this->sql); $i++ ){  $categories[$i] = $tablerows; }
-	//print_r($categories);
+	for( $i = 0; $tablerows = mysql_fetch_row($this->sql); $i++ )
+	{  $categories[$i] = $tablerows; }
 	$this->close_connection();
 	return $categories;
   }

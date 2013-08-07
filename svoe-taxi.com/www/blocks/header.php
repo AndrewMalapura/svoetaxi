@@ -91,6 +91,10 @@ echo '</ul></div>';
 		}
 		if( $column_pointer == 2) {echo "<td></td></tr>";} elseif ($column_pointer == 1) {echo "<td></td><td></td></tr>";}
 		echo "</table>";
+		
 }
  ?>
+  <marquee id="running" behavior="alternate" direction="left" onmouseout="this.start()" onmouseover="this.stop()">
+    <? echo $run_text = "Бегущая строка ...";?>
+  </marquee>
  <div class="col_title"></div>
