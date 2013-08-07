@@ -122,8 +122,10 @@
 	 line-height: 1.5;
 	 padding: 5px 15px;
 	}
-	.content-text{
-	  text-align: justify;
+	.content p{
+	   text-align: justify;
+	   text-indent: 20px;
+	   margin-bottom: 8px;
 	}
 	.descript{
 	 padding:0;
