@@ -55,6 +55,7 @@
 	  float: right;
 	  margin-right: 10px;
 	}
+	   /* форма авторизации */
 	#authorization {
 	 width: 165px;
 	 margin: 0 auto;
@@ -71,6 +72,46 @@
 	width: 50%;
 	font-weight: bold;
 	}
+		/* стили цитат на странице права и обязаности  */
+	blockquote { 
+	display: block;
+    background-color: #FDF5E6;	
+	padding: 10px 45px; /* Делаем отступы для кавычек */ 
+	border-left: 2px solid #B22222; /* Делаем рамку */ 
+	/*border-width: 1px;/*0 10px 0 10px;  по бокам */ 
+	margin: 10px 25px; 
+	color: #2F4F4F;
+	font-size: 10pt;
+	font-style: italic;
+	} 
+	blockquote:before { 
+	content: "“"; /* Левая кавычка */ 
+	font: 5em/36px Times, serif; /* Указываем размер и высоту строки (уменьшенная, чтобы кавычка была приподнята) */ 
+	color: #B22222; 
+	float: left; /* Для обтекания текстом */ 
+	margin-left: -45px; /* Углубляем кавычку в отступ блока */ 
+	padding: 0 2px; 
+	} 
+	blockquote:after { 
+	content: "”"; /* Правая кавычка */ 
+	font: 5em/26px Times, serif; /* Указываем размер и высоту строки (еще более уменьшенная, чтобы кавычка была сильнее приподнята) */ 
+	color: #B22222; 
+	float: right; /* Для обтекания текстом */ 
+	margin-right: -45px; /* Углубляем кавычку в отступ блока */
+	padding: 0 2px 0 0; 
+	}
+	blockquote > p{
+	 margin: 0;
+	 margin-top: 3px;
+	 font-weight: bold;
+	}
+	.call{
+	 margin-top: 10px;
+	 background-color: green;
+	 width: 200px;
+	 height: 80px;
+	}
+	    /* блок обратной связи */
 	.control{
 	 margin-top: 20px;
 	 width: 200px;
@@ -89,12 +130,8 @@
 	  font-weight: bold;
 	  background-color: #ccc;
 	 }
-	.call{
-	 margin-top: 10px;
-	 background-color: green;
-	 width: 200px;
-	 height: 80px;
-	}
+	
+		/* форма для добавления авто стр. администрирования */
 	#car-form .descript{
 	 text-align: left;
 	 padding-left: 4px;
@@ -108,13 +145,21 @@
 	 height: 20px;
 	 float: right;
 	}
-	.col_title{ /* red strips*/
+		/* div на странице автопарк */
+	.cars-gallery{ 
+	 border: 3px outset #ccc;
+	 margin: 0 auto;
+	 padding: 8px;
+	}
+		/* красная полоса сверху и снизу */
+	.col_title{ 
 	 clear: both;
 	 width: 100%;
 	 height: 8px;
 	 background-color: #d70505;
 	 margin: 5px 0 5px 0;
 	}
+	   /* блок для контента */
 	.content
 	{
 	 position: relative;
@@ -247,7 +292,7 @@
 	 height: 50px;
 	 }
 	 .foto-cars{
-	  margin: 2px;
+	  margin: 2pt;
 	 }
 	 .f_contacts{
 	 position: relative;
@@ -276,8 +321,8 @@
 		width:345px; 
 		height:500px;
 	 }
-	 .img_bot{  /*div с нами комфортно
-	  border: 1px solid #aaa;*/
+		/*div с нами комфортно*/
+	 .img_bot{  
 	  height: 40px;
 	  width: auto;
 	  margin:  5px 10px 5px 10px;
@@ -285,9 +330,6 @@
 	  background: url(image/bottom_content.png) no-repeat left;
 	 }
 	  #img-form{
-	  /*border: 1px solid #000;
-	  
-	  margin-right: 600px;*/
 	  padding-left: 50px;
 	  width: 275px;
 	  float: left;
@@ -299,23 +341,23 @@
 	  margin-right: 10px;
 	 }
 	 .main{
-	overflow:hidden;
+	 overflow:hidden;
 	}
 	#online-order{
-	text-align: center;
+	 text-align: center;
 	}
 	.marquee{
-	position: relative;
-	width: 100%;
-	height: 16px;
-	overflow: hidden;
+	 position: relative;
+	 width: 100%;
+	 height: 16px;
+	 overflow: hidden;
 	}
 	.marquee-div{
-	white-space: nowrap;
-	line-height: 16px;
-	font-size: 12px;
-	font-weight: bold;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	 white-space: nowrap;
+	 line-height: 16px;
+	 font-size: 12px;
+	 font-weight: bold;
+	 font-family: Verdana, Arial, Helvetica, sans-serif;
 	}
 	.message{
 	 font-size: 20px;
@@ -370,11 +412,11 @@
 	 text-align: left;
 	}
 	.policy-list{
-	margin-left: 10px;
+	 margin-left: 10px;
 	}
 	.policy-list ol{
-	font-weight: bold;
-	margin-left: 15px;
+	 font-weight: bold;
+	 margin-left: 15px;
 	}
 	.policy-list li{
 	font-weight: normal;
@@ -383,8 +425,7 @@
 	.red-str {
 	 color: red;
 	}
-	 .sidebar
-	{
+	.sidebar{
 	 width: 200px;
 	 height: 100%;
 	 float: right;
@@ -395,8 +436,7 @@
 	 height: 30px;
 	 font-size: 10pt;
 	 background: none repeat scroll 0 0 #DFDDE2;
-	 
-	 }
+	}
 	 .section-menu ul{
 	  list-style: none;
 	 }
@@ -449,12 +489,10 @@
 	}
 	.top-menu li a:hover
 	{
-	 /**background: url(image/menu_hover.png);
-	 /**background-repeat: repeat-x;*/
 	 font-weight: 500; 
 	 color: #e3e3e3;
 	}
-	 #wr{
+	#wr{
 	 margin-right: 205px;
 	}
 	.my-table {
@@ -484,8 +522,7 @@
 	 .wrapper
 	{
 	 width: 1000px;
-	 /*min-height: 550px;*/
 	 height: auto;
 	 margin: 0 auto;
 	 padding: 0;
-	 }
+	}

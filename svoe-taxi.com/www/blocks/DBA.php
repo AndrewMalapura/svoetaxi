@@ -191,7 +191,7 @@ if(! $query )
   // все категории картинок автомобилей
   function getCategories(){
 	$this->connect();
-	$this->sql = mysql_query("SELECT DISTINCT fleet_name FROM cars") or die(mysql_error());
+	$this->sql = mysql_query("SELECT DISTINCT fleet_name FROM cars ORDER BY fleet_name") or die(mysql_error());
 	for( $i = 0; $tablerows = mysql_fetch_row($this->sql); $i++ )
 	{  $categories[$i] = $tablerows; }
 	$this->close_connection();

@@ -2,6 +2,7 @@
 	session_start();
 	// Соответствие регуляному выражению( маске)
 	function isValid($value){
+	   if($value == '') return 0;
 		$expression = "/^[1-9]?[0-9]+([,\.][0-9]){0,3}/";
 	   return preg_match($expression, $value);
 	}
@@ -16,11 +17,11 @@
    if(isset($_POST[rate_change])){  
 		$tariff_data = $dao->findRate($_POST['rate_id']);
     if($_POST[name] != ''){$tariff_data[name] = $_POST[name];}
-	if($_POST[min] != ''){$tariff_data[up_to] = unit($_POST[min]);}
-	if($_POST[city] != ''){$tariff_data[city] = unit($_POST[city]);}
-	if($_POST[out_city] != ''){$tariff_data[out_city] = unit($_POST[out_city]);}
-	if($_POST[void] != ''){$tariff_data[void] = unit($_POST[void]);}
-	if($_POST[hour] != ''){$tariff_data[hour] = unit($_POST[hour]);}
+	if(isValid($_POST[min])){$tariff_data[up_to] = unit($_POST[min]);}
+	if(isValid($_POST[city])){$tariff_data[city] = unit($_POST[city]);}
+	if(isValid($_POST[out_city])){$tariff_data[out_city] = unit($_POST[out_city]);}
+	if(isValid($_POST[void])){$tariff_data[void] = unit($_POST[void]);}
+	if(isValid($_POST[hour])){$tariff_data[hour] = unit($_POST[hour]);}
 	  $dao->updateRates($tariff_data);
 	echo "<script language='JavaScript'>location.replace('./administration.php')</script>";
    }else{
