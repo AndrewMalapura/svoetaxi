@@ -76,8 +76,8 @@
 	 $img_width = 240;
 	 $img_height = 160;
 	 if($_GET[cat] == ''){ //  если ../fleet/index.php
-	     $img_width = 100;
-		 $img_height = 67;
+	     $img_width = 120;
+		 $img_height = 80;
 		 $cont_text = "<p>
 		В Артёмовске по телефону Вы можете заказать такие автомобили, как Hyundai Sonata, Toyota Сamry,
 		Lexus GS, Chevrolet lacetti,Volkswagen Multivan. 

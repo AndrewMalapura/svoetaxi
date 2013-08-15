@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="shortcut icon" href="../image/taxi.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="http://www.gismeteo.ua/static/css/informer2/gs_informerClient.min.css">
-  <<script type="text/javascript" src="../javascript/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="../javascript/jquery-1.10.1.min.js"></script>
   <script type="text/javascript" src="../javascript/jquery-migrate-1.2.1.js"></script>
   <script type="text/javascript" src="../javascript/jscroller-0.4.js"></script>
   <script type="text/javascript" src="../javascript/running_line.js"></script>
@@ -40,21 +40,20 @@
 		<div class="content">
 		  <span class = "page-title">	
 			Сотрудничество
-		  </span><br>		
-		<span class="content-text">
-		"Своё TAXI" приглашает к сотрудничеству  государственные и коммерческие организации. Наш опыт работы позволил нам 
+		  </span>
+		<p>"Своё TAXI" приглашает к сотрудничеству  государственные и коммерческие организации. Наш опыт работы позволил нам 
 		разработать гибкие схемы скидок, учитывающие всю специфику и сложность украинского  рынка, а так же индивидуальность каждого клиента.
-		</span>
-		Сотрудничество с компанией "Своё TAXI" дает Вам ряд преимуществ:
+		</p>
+		<p>Сотрудничество с компанией "Своё TAXI" дает Вам ряд преимуществ:
 		<ul class="policy-list">
 <li>своевременное и качественное предоставление услуг;</li>
 <li>самые низкие цены на рынке лицензированных таксомоторных услуг г. Киева;</li>
 <li>высокий комфорт и вежливое обслуживание;</li>
 <li>выполнение заказа в максимально короткие сроки;</li> 
 <li>время ожидания такси не превышает 10 минут;</li>
-		</ul><br>
-Вам будет выгодно заключить договор на транспортное обслуживание с компанией "Своё TAXI".<br>
-По вопросам сотрудничества обращайтесь: <? $contact ?>
+		</ul><p>
+<p>Вам будет выгодно заключить договор на транспортное обслуживание с компанией "Своё TAXI".<br>
+По вопросам сотрудничества обращайтесь: <? $contact ?></p>
 		
 <!--		<div id="slides">
   < ?

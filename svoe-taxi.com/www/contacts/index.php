@@ -23,7 +23,7 @@
 		<span class = "page-title">	
 			Контакты
 		</span><br/>
-		
+		<p>Мы ждём Ваших звонков в любое время суток !!!</p>
 		 <img id="contact-img" src="../image/kontakt.png" alt="Нет изображения">	
 		 </div>
 		<div class="img_bot">
