@@ -28,7 +28,7 @@
 			Вакансии
 		  </span>
 		  <p>Наша служба предлагает следующие вакансии:
-			<ul class="policy-list">
+			<ul id="vacancy" class="policy-list">
 				<li><a href="driver.php">Водитель такси</a></li>
 				<li><a href="dispatcher.php">Диспетчер такси</a></li>
 			</ul>

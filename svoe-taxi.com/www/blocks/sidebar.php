@@ -1,6 +1,6 @@
 <div class="sidebar">
 	<div class='banner'>
-		
+	<img src="../image/banner" alt="БАННЕР">	
 	</div>
 	<div id="gsInformerID-2t3Pig6w1Ty4m0" class="gsInformer" style="width:195px;height:252px">
   <div class="gsIContent">

@@ -111,10 +111,11 @@
 	 margin-left: 25px !important;
 	}
 	.banner{
-	 width: 100%;
+	 width: auto;
 	 height: 220px;
-	 background-color: #666666;
-	 margin-top: 5px;
+	 background-color: #FFF;
+	 margin: 5px 0 ;
+	 border: 4px double #000;
 	}
 	.call{
 	 margin-top: 10px;
@@ -129,8 +130,10 @@
 	 height: 73px;
 	 background: url(image/control.jpg);
 	 }
-	 #contact-img{
-	  margin: 10px;
+	 #contact-img{	  
+	   width: 100%;
+	   display:block;
+	   text-align: center;
 	 }
 	 #command-div{
 	  margin: 12px 0 0 0;
@@ -373,6 +376,24 @@
 	 font-weight: bold;
 	 font-family: Verdana, Arial, Helvetica, sans-serif;
 	}
+	.my-table {
+	 border-collapse: collapse;
+	 border: 1px solid #000;
+	 width: 95%;
+	}
+	.my-table th{
+	 font-weight: bold;
+	 border: 1px solid black;
+	}
+	.my-table td{
+	 height: 30px;
+	 margin: 0;
+	 border: 1px solid black;
+	 text-align: center;
+	}	
+	.my-table .hd{
+	 width: 120px; 
+	}
 	.message{
 	 font-size: 20px;
 	 text-align: center;
@@ -504,34 +525,23 @@
 	.top-menu li a:hover
 	{
 	 font-weight: 500; 
-	 color: #e3e3e3;
-	}
-	#wr{
-	 margin-right: 205px;
-	}
-	.my-table {
-	 border-collapse: collapse;
-	 border: 1px solid #000;
-	 width: 95%;
-	}
-	.my-table th{
+	 color: #CDCDB4;
+	}	
+	.rate-name{
 	 font-weight: bold;
-	 border: 1px solid black;
-	}
-	.my-table td{
-	 height: 30px;
-	 margin: 0;
-	 border: 1px solid black;
-	 text-align: center;
 	}
 	#title-table{
 	 width: 250px;
 	}
-	.my-table .hd{
-	 width: 120px; 
+	#vacancy li > a{
+	  font-weight: 600;
+	  color: #000;
 	}
-	.rate-name{
-	 font-weight: bold;
+	#vacancy li > a:hover{
+	  color: #CD0000;
+	}
+	#wr{
+	 margin-right: 205px;
 	}
 	 .wrapper
 	{
