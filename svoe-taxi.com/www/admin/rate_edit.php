@@ -15,15 +15,23 @@
    include_once("../blocks/DBA.php");
    $dao = new DBA();
    if(isset($_POST[rate_change])){  
+      $validData = 1;
 		$tariff_data = $dao->findRate($_POST['rate_id']);
     if($_POST[name] != ''){$tariff_data[name] = $_POST[name];}
 	if(isValid($_POST[min])){$tariff_data[up_to] = unit($_POST[min]);}
+	elseif($_POST[min] != '') {$validData = 0;}
 	if(isValid($_POST[city])){$tariff_data[city] = unit($_POST[city]);}
+	elseif($_POST[city] != '') {$validData = 0;}
 	if(isValid($_POST[out_city])){$tariff_data[out_city] = unit($_POST[out_city]);}
+	elseif($_POST[out_city] != '') {$validData = 0;}
 	if(isValid($_POST[void])){$tariff_data[void] = unit($_POST[void]);}
+	elseif($_POST[void] != '') {$validData = 0;}
 	if(isValid($_POST[hour])){$tariff_data[hour] = unit($_POST[hour]);}
+	elseif($_POST[hour] != '') {$validData = 0;}
+	if($validData){
 	  $dao->updateRates($tariff_data);
 	echo "<script language='JavaScript'>location.replace('./administration.php')</script>";
+	 } else {echo "<script language='JavaScript'>alert('Данные не валидны');</script>"; }
    }else{
 	$tariff_data = $dao->findRate($_GET["id"]);
    }

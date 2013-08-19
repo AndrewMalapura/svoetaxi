@@ -213,9 +213,9 @@
 			}
 		?>
              </select>
-		<input type="hidden" name="MAX_FILE_SIZE" value="40000" />
-		<input type="file" name="file" id="file" required/><br>		
-	    <input type="submit" name="load" value="Загрузить фото"/><input type="reset" value="Очистить"/>
+		<input type="hidden" name="MAX_FILE_SIZE" value="40000" /> <!-- максимал размер 40 кБ-->
+		<input type="file" name="file" id="file" required /><br>		
+	    <input type="submit" name="load" value="Принять"/><input type="reset" value="Очистить"/>
 	  </form>
 	    </div><br>
 		<div id="find">

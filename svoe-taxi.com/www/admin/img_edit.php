@@ -8,9 +8,10 @@
    $dao = new DBA();
    $car = $dao->searchCar($_POST['id']);
 ?>
+<!DOCTYPE HTML>
 	<html>
    <head>
-      	<title>Автопарк</title>
+      	<title>Коррекция автопарк</title>
 		<link rel="stylesheet" type="text/css" href="../style.css" />
    </head>
   <body>
@@ -25,11 +26,13 @@
 		<tr><td><label for='call' >Позывной:</label></td></tr>
 		<tr><td><input id='call' type='text' name='call' placeholder='|".$car[call]."' /></td></tr>
 		<tr><td><label for='model' >Модель</label></td></tr>
-		<tr><td><input id='model' type='text' name='model' placeholder='|новый пароль' /></td></tr>
-		<tr><td><label for='img' >Фото</label></td></tr>
-		<tr><td><input id='img' type='text' name='img' placeholder='|повторите пароль' /></td></tr>
+		<tr><td><input id='model' type='text' name='model' placeholder='|".$car[model]."' /></td></tr>
+		<tr><td><label for='file' >Фото автомобиля</label></td></tr>
+		<tr><td><img src='".$car[img]."' alt='Нет фото' width='180' /></td></tr>
+		<tr><td><input type='hidden' name='MAX_FILE_SIZE' value='40000' />
+		<input type='file' name='file' id='file' /></td></tr>
 		<tr><td><label for='fleet_name' >Категория авто</label></td></tr>
-		<tr><td><input id='fleet_name' type='text' name='fleet_name' placeholder='|повторите пароль' /></td></tr>
+		<tr><td><input id='fleet_name' type='text' name='fleet_name' placeholder='|категория авто' /></td></tr>
 		<tr><td><input type='submit' name='change' value='Принять' /></td></tr>
 		<tr><td><input type='reset' value='Очистить' /></td></tr>";
 	?>	
