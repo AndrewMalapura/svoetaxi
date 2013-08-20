@@ -34,12 +34,13 @@
 	<tr><td>
 	<div id="img-holder">
 	 <div id="drop-files">
-		<? echo "<img src='".$car[img]."' alt='Нет картинки'/>"; ?>		
+		<? echo "<img id='imgcar' src='".$car[img]."' alt='Нет картинки'/>"; ?>		
 	 </div>
 			<input type="file" id="uploadbtn" />
 	</div>  
 	</td></tr>
-<? echo "<tr><td><label for='fleet_name' >Категория авто</label></td></tr>
+	<? 
+  echo "<tr><td><label for='fleet_name' >Категория авто</label></td></tr>
 		<tr><td><input id='fleet_name' type='text' name='fleet_name' placeholder='|категория авто' /></td></tr>
 		<tr><td><input type='submit' name='change' value='Принять' /></td></tr>
 		<tr><td><input type='reset' value='Очистить' /></td></tr>";
