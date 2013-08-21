@@ -1,28 +1,44 @@
 var $ = jQuery.noConflict();
 
 $(document).ready(function() {
-    // ¬ dataTransfer ÔÓÏÂ˘‡ÂÚÒˇ ‚˚·‡ÌÌÓÂ ËÁÓ·‡ÊÂÌËÂ
+    // –í dataTransfer –ø–æ–º–µ—â–∞–µ—Ç—Å—è –≤—ã–±—Ä–∞–Ω–Ω–æ–µ –∏–∑–æ–±—Ä–∞–∂–µ–Ω–∏–µ
 	jQuery.event.props.push('dataTransfer');
     // Check for the various File API support.
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
 	// Great success! All the File APIs are supported.
-	} else {
-	alert('The File APIs are not fully supported in this browser.');
-	} 
-	// ŒÔÓ‚Â˘ÂÌËÂ ÔÓ ÛÏÓÎ˜‡ÌË˛
+	 
+	// –û–ø–æ–≤–µ—â–µ–Ω–∏–µ –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é
 	var errMessage = 0;
 		 
-	//  ÌÓÔÍ‡ ‚˚·Ó‡ Ù‡ÈÎÓ‚
+	// –ö–Ω–æ–ø–∫–∞ –≤—ã–±–æ—Ä–∞ —Ñ–∞–π–ª–æ–≤
 	var uploadBtn = document.getElementById("uploadbtn");
-		 
-	// Ù‡ÈÎ ËÁÓ·‡ÊÂÌËˇ
-	var imgFile ;
 			
-	// œË Ì‡Ê‡ÚËË Ì‡ ÍÌÓÔÍÛ ‚˚·Ó‡ Ù‡ÈÎÓ‚
+	// –ü—Ä–∏ –Ω–∞–∂–∞—Ç–∏–∏ –Ω–∞ –∫–Ω–æ–ø–∫—É –≤—ã–±–æ—Ä–∞ —Ñ–∞–π–ª–æ–≤
     uploadBtn.onchange=function(event){
 			
 		var file = event.target.files[0];
+		if (!file.type.match(/image.*/)){
+	   uploadBtn.value = '';
+	   alert("–≠—Ç–æ –Ω–µ –∏–∑–æ–±—Ä–∞–∂–µ–Ω–∏–µ"); 
+		return;
+	    }
+		if(file.size > 40000){
+	   alert("–†–∞–∑–º–µ—Ä –±–æ–ª—å—à–µ –¥–æ–ø—É—Å—Ç–∏–º–æ–≥–æ");
+	   uploadBtn.value = '';
+		return;
+		}
 		var reader = new FileReader();
-		alert(file);
-    };
+	reader.onload = (function(theFile) {
+        return function(e) {
+          var foto = document.getElementById("imgcar");
+          foto.src = e.target.result;
+        };
+      })(file);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(file);
+	  }
+	} else {
+	alert('–ü—Ä–µ–¥–æ—Å–º–æ—Ç—Ä –∏–∑–æ–±—Ä–∞–∂–µ–Ω–∏—è –Ω–µ–≤–æ–∑–º–æ–∂–µ–Ω, –æ–±–Ω–æ–≤–∏—Ç–µ –±—Ä–∞—É–∑–µ—Ä');
+	}
 });

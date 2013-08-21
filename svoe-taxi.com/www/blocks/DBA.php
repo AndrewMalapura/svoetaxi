@@ -184,10 +184,24 @@ if(! $query )
 	$this->sql = mysql_query("insert into cars values( NULL,'".$owner."','" .$call."','".$model."','".$img."','".$fleet_name."')") or die(mysql_error());
 	$this->close_connection();
   }
-  function updateCar(){
+  function updateCar($car){
 	$this->connect();
+	$sql = "UPDATE cars SET";
+  $sql .= " owner='".$car['owner']."', ";
+  $sql .= " call='".$car['call']."', ";
+  $sql .= "model='".$car['model']."', ";
+  $sql .= "img='".$car['img']."', ";
+  $sql .= " fleet_name='".$car['fleet_name']."'";
+  $sql .= " WHERE id='".$car['id']."'"; 
+	$query = mysql_query($sql);
+if(! $query )
+{ 
+  $this->close_connection();
+  die('Could not update data: ' . mysql_error());
+}
 	$this->close_connection();
   }
+  
   // все категории картинок автомобилей
   function getCategories(){
 	$this->connect();

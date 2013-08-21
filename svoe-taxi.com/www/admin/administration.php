@@ -67,12 +67,10 @@
 			}
 		  }
 		  if(isset($_POST["load"])){
-		  //echo '<pre>'; 
+		  
 		  if ($_FILES['file']['error'] > 0) {
   echo "Transfer error: ".$_FILES['file']['error']." - upload cancelled<br>";
-		}
-		 
-	   if ((($_FILES["file"]["type"] == "image/gif")
+		} elseif ((($_FILES["file"]["type"] == "image/gif")
 		|| ($_FILES["file"]["type"] == "image/jpeg")
 		|| ($_FILES["file"]["type"] == "image/jpg")
 		|| ($_FILES["file"]["type"] == "image/png")
@@ -102,7 +100,6 @@
 				  $_SERVER['DOCUMENT_ROOT'].$path . $_FILES["file"]["name"]);
 				  
 				$dao->addCar($owner,$call,$model,$img,$fleet_name);
-				  //echo "Stored in: " . $path . $_FILES["file"]["name"];
 				  }
 				
 		 // echo "<script type-'javascript'>alert('загрузка файла')</script>";
