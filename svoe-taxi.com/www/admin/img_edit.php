@@ -17,12 +17,15 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 <?
    
    if(isset($_POST[car_change])){
-     echo $_POST[img];
-		if( $_POST[owner]==''&&$_POST[call]==''&&$_POST[model]==''&&$_POST[img]==''&&$_POST[fleet_name]==''){
+   //  print_r($_FILES[uploadbtn][name]);
+		if( $_POST[owner]=='' && $_POST[call]=='' && $_POST[model]=='' && $_FILES[uploadbtn][name]=='' && $_POST[fleet_name]==''){
+			echo "<script language='JavaScript'>alert('Изменений нет')</script>";		
 			$car = $dao->searchCar($_POST['img_id']);
 		} else{
-			echo "<script language='JavaScript'>alert('Загрузка')</script>";
+			//echo "<script language='JavaScript'>alert('".$_FILES[uploadbtn][name]."')</script>";
+			
 			$car = $dao->searchCar($_POST['img_id']);
+			$car[img] = $_FILES[uploadbtn][name];
 			}
 
    }else{
@@ -41,13 +44,13 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 		<tr><td><input id='call' type='text' name='call' placeholder='|".$car[call]."' /></td></tr>
 		<tr><td><label for='model' >Модель</label></td></tr>
 		<tr><td><input id='model' type='text' name='model' placeholder='|".$car[model]."' /></td></tr>
-		<tr><td><label for='file' >Фото автомобиля</label></td></tr>";?>
+		<tr><td><label for='img-holdera' >Фото автомобиля</label></td></tr>"; ?>
 	<tr><td>
-	<div id="img-holder">
+	<div id="img-holdera">
 	 <div id="img-div">
 		<? echo "<img id='imgcar' src='".$car[img]."' alt='Нет картинки'/>"; ?>		
 	 </div>
-			<input type="file" id="uploadbtn" />
+			<input type="file" id="uploadbtn" name="uploadbtn" />
 	</div>  
 	</td></tr>
 	<? 
