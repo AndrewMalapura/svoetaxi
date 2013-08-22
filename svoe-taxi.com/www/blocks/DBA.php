@@ -230,5 +230,10 @@ if(! $query )
     return $car;
   }
   
+  // -------------- functions --------------       
+  
+  
+  
+  
   } // end class
   ?>

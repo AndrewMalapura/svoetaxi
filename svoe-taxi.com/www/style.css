@@ -23,7 +23,7 @@
 	}
 	#add-img{
 	  border: 1px solid #000;
-	  height: 262px;
+	  height: auto;
 	  width: 242px;
 	}
 	.admin-form{
@@ -40,7 +40,6 @@
 	}
 	.admin-table 
 	{
-	 border-collapse: collapse;
 	/* border: 1px solid #000;*/
 	 width: 100%;
 	 padding: 1px;
@@ -261,20 +260,12 @@
 	   font: 13px Arial;
 	   margin: 0;
 	 }
-	  #find-form{
-	  border: 1px solid #000;
-	  width:240px;
-	 }
+	 
 	 #find{
-	  width: 244px;
+	  width: auto;
+	  display: inline;
 	}	 
-	 #find-form input,select{
-	  margin: 5px;
-	  width:220px;
-	 }
-	 #find-form legend{
-	   margin-left: 20px;
-	 }
+	
 	.footer
 	{ 
 	 height: 40px;
@@ -580,4 +571,13 @@
     color: red;
 	font-weight: bold;
 	font-size: 11px;
+}
+#img-holder{
+	height: auto;
+	width: auto;
+}
+#img-holder img{
+    margin: 0 auto;
+	width: 228px;
+	border: 1px solid #000;
 }

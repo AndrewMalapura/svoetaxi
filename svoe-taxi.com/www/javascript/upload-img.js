@@ -17,6 +17,7 @@ $(document).ready(function() {
     uploadBtn.onchange=function(event){
 			
 		var file = event.target.files[0];
+		
 		if (!file.type.match(/image.*/)){
 	   uploadBtn.value = '';
 	   alert("Это не изображение"); 
@@ -38,6 +39,27 @@ $(document).ready(function() {
       // Read in the image file as a data URL.
       reader.readAsDataURL(file);
 	  }
+	  
+	  var ctg = document.getElementById("lstCategories");
+	 
+	ctg.onchange = function (event){	
+	var x=document.getElementById("lstCategories").selectedIndex;
+	var y=document.getElementById("lstCategories").options;
+	var last = document.getElementById("lstCategories").options.length-1;
+	//var position = lenght;
+	//alert(last);
+	if(x == last){
+		var handler = prompt('Введите новую категорию','категория') ;
+		if( handler != null){
+			document.getElementById("lstCategories").options[last] = new Option (handler);
+			document.getElementById("lstCategories").selectedIndex = last;
+	    }
+	}else{
+		document.getElementById("lstCategories").options[x] = y[x];
+	    document.getElementById("lstCategories").selectedIndex = x;
+	}
+	}
+	  
 	} else {
 	alert('Предосмотр изображения невозможен, обновите браузер');
 	}

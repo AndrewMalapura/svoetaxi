@@ -7,6 +7,8 @@
   <title> администрирование сайта </title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <script type="text/javascript" src="../javascript/cookies.js"></script> 
+  <script type="text/javascript" src="../javascript/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="../javascript/jquery-migrate-1.2.1.js"></script>
   <script type="text/javascript" src="../javascript/admin.js"></script> 
   <link rel="stylesheet" type="text/css" href="../style.css" />
   
@@ -23,8 +25,7 @@
 		return $value = number_format (str_replace (",", ".", trim ($value)), $decimal_point);
 }
 
-	include_once("../blocks/DBA.php");
-	$dao = new DBA();
+	include_once("../blocks/lib.php");
    // Инициируем сессию	
    if($_SESSION[name]!=""){					// Добавить пользователя
 		  if(isset($_POST["registration"]) and ($_POST["password"] == $_POST["r_password"]))
@@ -210,17 +211,18 @@
 			}
 		?>
              </select>
+		<div id="img-holder" class="image-place"></div><br/>
 		<input type="hidden" name="MAX_FILE_SIZE" value="40000" /> <!-- максимал размер 40 кБ-->
-		<input type="file" name="file" id="file" required /><br>		
+		<input type="file" name="file" id="file" required /><br>	
 	    <input type="submit" name="load" value="Принять"/><input type="reset" value="Очистить"/>
 	  </form>
 	    </div><br>
-		<div id="find">
+		
+	</div>
+	<div class="admin-data-div">
+	<div id="find">
 	  <form id='find-form' method='POST' action='../admin/administration.php'>
-				<legend><strong>Показать категорию </strong></legend><br>
-				<!--input type="text" name="find-call" placeholder="|позывной" /><br>
-				<input type="text" name="find-owner" placeholder="|владелец" /><br>
-				<input type="text" name="find-model" placeholder="|модель" /><br--->
+				<legend><strong>Показать категорию </strong></legend>
 		<?
 		    echo "<select name='find-categor' id='fndCategories' onchange='sortCar(this.form)'>";
 			echo "<option value='Все категории' >Все категории</option>";
@@ -236,14 +238,10 @@
 
 	  </form><br>
 		</div>
-	</div>
-	<div class="admin-data-div">
 	<?
-		//echo "fleet_name:".$fleet_name;
+		
 		if($fleet_name == "Все категории") $fleet_name = '';
 		$cars = $dao->findCar($fleet_name);
-		// print_r ($cars);
-			//echo "<br><br>";
 			echo "<form id='car-form' method='POST'>";
 			echo "<table class='admin-table'>";
 			//echo "<tr id='head'><th>image</th><th>data</th>'><th>image</th><th>data</th></</tr>";

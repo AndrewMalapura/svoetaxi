@@ -1,7 +1,7 @@
 <? session_start(); 
 if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
-   include_once("../blocks/DBA.php");
-    $dao = new DBA();
+   include_once("../blocks/lib.php");
+   // $dao = new DBA();
 	$uploaddir = "/image/gallery/";
 ?>
 <!DOCTYPE HTML>
@@ -18,7 +18,7 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
    
    if(isset($_POST[car_change])){
         $car = $dao->searchCar($_POST['img_id']); // заполнение значениями из БД
-		if( $_POST[owner]=='' && $_POST[call]=='' && $_POST[model]=='' && $_FILES[uploadbtn][name]=='' && $_POST[fleet_name]==''){
+		if( $_POST[owner]=='' && $_POST[call]=='' && $_POST[model]=='' && $_FILES[uploadbtn][name]=='' && $_POST[categor]==''){
 			echo "<script language='JavaScript'>alert('Изменений нет')</script>";		
 			//$car = $dao->searchCar($_POST['img_id']); // заполнение значениями из БД
 		} else{
@@ -27,7 +27,7 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 		    if($_POST[owner]!='') $car[owner] = $_POST[owner];
 			if($_POST[call]!='')  $car[call] = $_POST[call];
 			if($_POST[model]!='') $car[model] = $_POST[model];
-			if($_POST[fleet_name]!='') $car[fleet_name] = $_POST[fleet_name];
+			if($_POST[categor]!='') $car[fleet_name] = $_POST['categor'];
 	echo '<pre>'; // загружаем новое фото
 			if($uploadfile != ''){
 			$car[img] = $uploadfile;
@@ -36,7 +36,8 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 		    echo "Файл корректен и был успешно загружен.\n";
 			  if (file_exists($oldfoto)) { unlink($oldfoto); } // удалить старый файл	
 			}						
-		        $dao->updateCar($car);			
+		        $dao->updateCar($car);
+				print_r($car);
 		} else {
 			echo "Возможная атака с помощью файловой загрузки!\n";
 		}
@@ -60,7 +61,7 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 		<tr><td><input id='model' type='text' name='model' placeholder='|".$car[model]."' /></td></tr>
 		<tr><td><label for='img-holdera' >Фото автомобиля</label></td></tr>"; ?>
 	<tr><td>
-	<div id="img-holdera">
+	<div id="img-holder">
 	 <div id="img-div">
 		<? echo "<input id='oldimg' name='oldimg' type='hidden' value='".$car[img]."'>";
 		   echo "<img id='imgcar' src='".$car[img]."' alt='Нет картинки'/>"; ?>		
@@ -70,7 +71,21 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 	</td></tr>
 	<? 
   echo "<tr><td><label for='fleet_name' >Категория авто</label></td></tr>
-		<tr><td><input id='fleet_name' type='text' name='fleet_name' placeholder='|категория авто' /></td></tr>
+		<tr><td>";
+			$categories = $dao->getCategories();
+		echo "<select name='categor' id='lstCategories' required>";
+			$val=0;
+			$hand = "свой вариант";
+			if(count($categories)){
+			foreach($categories as $category){
+			echo "<option value='".$category[0]."' >$category[0]</option>";
+			}
+			echo "<option value='".$hand."' >$hand</option>";
+			} else {
+			 echo "<option value='' ></option>";
+			 echo "<option value='".$hand."' >$hand</option>";
+			}
+		echo "</td></tr>
 		<tr><td><input type='submit' name='car_change' value='Принять' /></td></tr>
 		<tr><td><input type='reset' value='Очистить' /></td></tr>";
 	?>	
@@ -78,6 +93,5 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 	<tr><td><a class="back_admin" title="Вернуться на страницу администрирования" href="../admin/administration.php">Главная страница</a></td></tr>
 </table>
 	</div>
-	<? echo $uploaddir; ?>
   </body>
 </html>

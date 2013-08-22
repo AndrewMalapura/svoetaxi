@@ -105,3 +105,39 @@
 	form.submit(); 
 	//location.replace('../admin/administration.php');
 	}
+	
+	var $ = jQuery.noConflict();
+
+$(document).ready(function() {
+    // В dataTransfer помещается выбранное изображение
+	jQuery.event.props.push('dataTransfer');
+    // Check for the various File API support.
+	var uploadBtn = document.getElementById("file");
+	
+	uploadBtn.onchange = function(event){
+	var file = event.target.files[0];
+		if (!file.type.match(/image.*/)){
+	   uploadBtn.value = '';
+	   alert("Это не изображение"); 
+		return;
+	    }
+		if(file.size > 40000){
+	   alert("Размер больше допустимого");
+	   uploadBtn.value = '';
+		return;
+		}
+		var reader = new FileReader();
+		
+	reader.onload = (function(theFile) {
+        return function(e) {
+	var imgPlace = document.getElementById('img-holder');
+	imgPlace.innerHTML = "";
+    var img = new Image();
+	img.src = e.target.result;
+	imgPlace.appendChild(img);
+        };
+      })(file);
+	  
+	  reader.readAsDataURL(file);
+	}
+	});
