@@ -565,9 +565,19 @@
 	font-weight: bold;
 }
 
+#img-div {
+	border: 1px solid #000;
+	height: 120px;
+	width: 185px;
+	padding:0;
+	margin-bottom: 5px;
+}
 #img-div img {
 	height: 120px;
-	width: 185px
-	padding:0;
-	margin:0;
+	width: 185px;
+}
+#uploadbtn{
+    color: red;
+	font-weight: bold;
+	font-size: 11px;
 }

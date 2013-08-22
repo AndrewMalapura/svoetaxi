@@ -185,7 +185,8 @@ if(! $query )
 	$this->close_connection();
   }
   function updateCar($car){
-	$this->connect();
+       print_r($car);
+	/*$this->connect();
 	$sql = "UPDATE cars SET";
   $sql .= " owner='".$car['owner']."', ";
   $sql .= " call='".$car['call']."', ";
@@ -199,7 +200,7 @@ if(! $query )
   $this->close_connection();
   die('Could not update data: ' . mysql_error());
 }
-	$this->close_connection();
+	$this->close_connection();*/
   }
   
   // все категории картинок автомобилей

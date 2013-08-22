@@ -2,7 +2,7 @@
 if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
    include_once("../blocks/DBA.php");
     $dao = new DBA();
-	$path = "/image/gallery/";
+	$uploaddir = "/image/gallery/";
 ?>
 <!DOCTYPE HTML>
 	<html>
@@ -17,17 +17,31 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 <?
    
    if(isset($_POST[car_change])){
-   //  print_r($_FILES[uploadbtn][name]);
+        $car = $dao->searchCar($_POST['img_id']); // заполнение значениями из БД
 		if( $_POST[owner]=='' && $_POST[call]=='' && $_POST[model]=='' && $_FILES[uploadbtn][name]=='' && $_POST[fleet_name]==''){
 			echo "<script language='JavaScript'>alert('Изменений нет')</script>";		
-			$car = $dao->searchCar($_POST['img_id']);
+			//$car = $dao->searchCar($_POST['img_id']); // заполнение значениями из БД
 		} else{
-			//echo "<script language='JavaScript'>alert('".$_FILES[uploadbtn][name]."')</script>";
-			
-			$car = $dao->searchCar($_POST['img_id']);
-			$car[img] = $_FILES[uploadbtn][name];
+		$uploadfile = $uploaddir . basename($_FILES['uploadbtn']['name']);
+		$oldfoto = $_SERVER['DOCUMENT_ROOT'].$_POST['oldimg'];
+		    if($_POST[owner]!='') $car[owner] = $_POST[owner];
+			if($_POST[call]!='')  $car[call] = $_POST[call];
+			if($_POST[model]!='') $car[model] = $_POST[model];
+			if($_POST[fleet_name]!='') $car[fleet_name] = $_POST[fleet_name];
+	echo '<pre>'; // загружаем новое фото
+			if($uploadfile != ''){
+			$car[img] = $uploadfile;
+		if (move_uploaded_file($_FILES['uploadbtn']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$uploadfile)) 
+			{
+		    echo "Файл корректен и был успешно загружен.\n";
+			  if (file_exists($oldfoto)) { unlink($oldfoto); } // удалить старый файл	
+			}						
+		        $dao->updateCar($car);			
+		} else {
+			echo "Возможная атака с помощью файловой загрузки!\n";
+		}
+	echo "</pre>";
 			}
-
    }else{
      $car = $dao->searchCar($_GET['id']);
    }
@@ -48,7 +62,8 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 	<tr><td>
 	<div id="img-holdera">
 	 <div id="img-div">
-		<? echo "<img id='imgcar' src='".$car[img]."' alt='Нет картинки'/>"; ?>		
+		<? echo "<input id='oldimg' name='oldimg' type='hidden' value='".$car[img]."'>";
+		   echo "<img id='imgcar' src='".$car[img]."' alt='Нет картинки'/>"; ?>		
 	 </div>
 			<input type="file" id="uploadbtn" name="uploadbtn" />
 	</div>  
