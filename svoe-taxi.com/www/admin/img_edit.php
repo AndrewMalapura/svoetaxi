@@ -25,19 +25,21 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 		$uploadfile = $uploaddir . basename($_FILES['uploadbtn']['name']);
 		$oldfoto = $_SERVER['DOCUMENT_ROOT'].$_POST['oldimg'];
 		    if($_POST[owner]!='') $car[owner] = $_POST[owner];
-			if($_POST[call]!='')  $car[call] = $_POST[call];
+			if($_POST[call]!='')  $car[dr_call] = $_POST[call];
 			if($_POST[model]!='') $car[model] = $_POST[model];
 			if($_POST[categor]!='') $car[fleet_name] = $_POST['categor'];
 	echo '<pre>'; // загружаем новое фото
 			if($uploadfile != ''){
+			//echo $_SERVER['DOCUMENT_ROOT'].$uploadfile;
 			$car[img] = $uploadfile;
 		if (move_uploaded_file($_FILES['uploadbtn']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$uploadfile)) 
 			{
+			
 		    echo "Файл корректен и был успешно загружен.\n";
 			  if (file_exists($oldfoto)) { unlink($oldfoto); } // удалить старый файл	
 			}						
 		        $dao->updateCar($car);
-				print_r($car);
+				
 		} else {
 			echo "Возможная атака с помощью файловой загрузки!\n";
 		}
@@ -56,7 +58,7 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
   echo "<tr><td><label for='owner' >Владелец:</label></td></tr>
 		<tr><td><input id='owner' type='text' name='owner' placeholder='|".$car[owner]."' /></td></tr>
 		<tr><td><label for='call' >Позывной:</label></td></tr>
-		<tr><td><input id='call' type='text' name='call' placeholder='|".$car[call]."' /></td></tr>
+		<tr><td><input id='call' type='text' name='call' placeholder='|".$car[dr_call]."' /></td></tr>
 		<tr><td><label for='model' >Модель</label></td></tr>
 		<tr><td><input id='model' type='text' name='model' placeholder='|".$car[model]."' /></td></tr>
 		<tr><td><label for='img-holdera' >Фото автомобиля</label></td></tr>"; ?>
@@ -70,7 +72,7 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 	</div>  
 	</td></tr>
 	<? 
-  echo "<tr><td><label for='fleet_name' >Категория авто</label></td></tr>
+  echo "<tr><td><label for='categor' >Категория авто</label></td></tr>
 		<tr><td>";
 			$categories = $dao->getCategories();
 		echo "<select name='categor' id='lstCategories' required>";

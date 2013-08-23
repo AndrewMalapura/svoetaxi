@@ -249,26 +249,25 @@
 		foreach($cars as $value){
 			if(!$column){
 		echo "
-			 <tr><td><img src='".$value[4]."' alt='Нет фото' width='150' height='100' /></td>
-			 <td class='descript'><span class='red-str'>позывной:</span> $value[2]<br>
+			 <tr><td><img src='".$value[4]."' alt='Нет фото' class='fleet-img'/>
+			 <div class='description'><span class='red-str'>позывной:</span> $value[2]<br>
 			 <span class='red-str'>владелец:</span> $value[1]<br>
 			 <span class='red-str'>модель:</span> $value[3]<br>
 			 <span class='red-str'>категория:</span> $value[5]<br>
 			 <span class='red-str'>path:</span> $value[4]<br>
 			 <a href='../admin/img_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>
-			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></td></a>			   
+			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></a></div></td>		   
 			   ";
 			 $column++;
 			 }else{
 			 		echo "
-			 <td><img src='".$value[4]."' alt='Нет фото' width='150' height='100' /></td>
-			 <td class='descript'><span class='red-str'>позывной:</span> $value[2]<br>
-			 <span class='red-str'>владелец:</span> $value[1]<br>
+			 <td><img src='".$value[4]."' alt='Нет фото'class='fleet-img' /><span class='red-str'>позывной:</span> $value[2]<br>
+			 <div class='description'><span class='red-str'>владелец:</span> $value[1]<br>
 			 <span class='red-str'>модель:</span> $value[3]<br>
 			 <span class='red-str'>категория:</span> $value[5]<br>
 			  <span class='red-str'>path:</span> $value[4]<br>
 			 <a href='../admin/img_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>    
-			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></a></td></tr>			   
+			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></a></div></td></tr>			   
 				";
 			 $column--;	
 			  }

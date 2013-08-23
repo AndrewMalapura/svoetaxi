@@ -46,8 +46,7 @@ $(document).ready(function() {
 	var x=document.getElementById("lstCategories").selectedIndex;
 	var y=document.getElementById("lstCategories").options;
 	var last = document.getElementById("lstCategories").options.length-1;
-	//var position = lenght;
-	//alert(last);
+	
 	if(x == last){
 		var handler = prompt('Введите новую категорию','категория') ;
 		if( handler != null){
