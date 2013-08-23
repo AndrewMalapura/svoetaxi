@@ -1,42 +1,45 @@
 	var stat = getCookie('param');
+	var bcg_color = '#E8E8E8';
+	var bcg_hover = '#F08080';
+	var bcg_active = '#F08080';
 	
 	window.onload=function(){
-	//var stat = getCookie('param');
+	
 		switch (stat) {
 	   case 'user':
 	       document.getElementById('usr').style.display='block';
-		   document.getElementById('busr').style.background='white';
+		   document.getElementById('busr').style.background=bcg_active;
 		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background='silver';
+		   document.getElementById('brts').style.background=bcg_color;
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='silver';
+		   document.getElementById('bcar').style.background=bcg_color;
 		 //  setCookie('param','user','');
 	       break;
 	   case 'tariff':
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='#ccc';
+		   document.getElementById('busr').style.background=bcg_color;
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='#ccc';
+		   document.getElementById('bcar').style.background=bcg_color;
 		   document.getElementById('trf').style.display='block';
-		   document.getElementById('brts').style.background='white';
+		   document.getElementById('brts').style.background=bcg_active;
 		  // setCookie('param','tariff','');
 	       break;
 	  case 'cars':
 		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background='#ccc';
+		   document.getElementById('brts').style.background=bcg_color;
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='#ccc';
+		   document.getElementById('busr').style.background=bcg_color;
 		   document.getElementById('cars').style.display='block';
-		   document.getElementById('bcar').style.background='white';
+		   document.getElementById('bcar').style.background=bcg_active;
 		 //  setCookie('param','cars','');
 	       break;
 	  default :
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='#ccc';
+		   document.getElementById('busr').style.background=bcg_color;
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='#ccc';
+		   document.getElementById('bcar').style.background=bcg_color;
 		   document.getElementById('trf').style.display='block';
-		   document.getElementById('brts').style.background='white';
+		   document.getElementById('brts').style.background=bcg_active;
 		   setCookie('param','tariff','');
 	}
 	}
@@ -48,31 +51,31 @@
 	 switch (id) {
 	   case 'busr':
 	       document.getElementById('usr').style.display='block';
-		   document.getElementById('busr').style.background='white';
+		   document.getElementById('busr').style.background=bcg_active;
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='#ccc';
+		   document.getElementById('bcar').style.background=bcg_color;
 		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background='#ccc';
+		   document.getElementById('brts').style.background=bcg_color;
 		   setCookie('param','user','');
 	       break;
 	   case 'brts':
 	       //document.getElementById(id).value="Тарифы";
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='#ccc';
+		   document.getElementById('busr').style.background=bcg_color;
 		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background='#ccc';
+		   document.getElementById('bcar').style.background=bcg_color;
 		   document.getElementById('trf').style.display='block';
-		   document.getElementById('brts').style.background='white';
+		   document.getElementById('brts').style.background=bcg_active;
 		   setCookie('param','tariff','');
 	       break;
 	   case 'bcar':
 	       //document.getElementById(id).value="Тарифы";
 		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background='#ccc';
+		   document.getElementById('busr').style.background=bcg_color;
 		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background='#ccc';
+		   document.getElementById('brts').style.background=bcg_color;
 		   document.getElementById('cars').style.display='block';
-		   document.getElementById('bcar').style.background='white';
+		   document.getElementById('bcar').style.background=bcg_active;
 		   setCookie('param','cars','');
 	       break;
 	  default : alert('Я таких значений не знаю');

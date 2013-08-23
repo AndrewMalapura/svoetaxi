@@ -193,7 +193,7 @@ if(! $query )
 	  $sql .= " img = '".$car['img']."', ";
 	  $sql .= " fleet_name = '".$car['fleet_name']."'";
 	  $sql .= " WHERE id='".$car['id']."'"; 
-	  print_r($sql);
+	  //print_r($sql);
 	$query = mysql_query($sql)or die(mysql_error());
 	
 if(!$query )

@@ -24,17 +24,20 @@
 	#add-img{
 	  border: 1px solid #000;
 	  height: auto;
-	  width: 242px;
+	  width: 220px;
 	}
 	.admin-form{
 	  float: left;
-	  width: 30%;
-	  padding-left: 30px;
+	  width: 220px;
+	  padding-left: 10px;
+	}
+	.admin-form  legend{
+	  margin: 0 10px;	  
 	}
 	.admin-page{
      width: 100%;
-	 border: 2px solid #ccc;	
-	 /*margin: 3px;*/
+	 border: 2px outset #ccc;	
+	 background-color: #E8E8E8;
 	 padding: 15px 0;
 	 overflow:hidden;
 	}
@@ -51,15 +54,17 @@
 	 border: 1px solid black;
 	 text-align: center;
 	}
+	.admin-table td{
+	 background-color: white;
+	}
 	.admin-table td > img{
 	  float: left;
-	  border: 2px solid #000;
-	   width: 180px;
-	   height: 120px; 
+	  width: 180px;
+	  height: 120px; 
 	}
 	.admin-data-div{
-	  border: 1px solid #000;
-	  width:65%;
+	  /*border: 1px solid #000;*/
+	  width:745px;
 	  float: right;
 	  margin-right: 10px;
 	}
@@ -150,7 +155,7 @@
 	  padding: 4px;
 	  font-weight: bold;
 	  border-radius: 20px;
-	  background: #82cc5d;
+	  background: #E8E8E8;
 	  background: -moz-linear-gradient(top,  #82cc5d 0%, #53b73c 100%);
 	  border: 2px solid red;
 	  margin-bottom: 3px;
@@ -164,12 +169,14 @@
 	 font-weight: 600;
 	 font: 10pt 'Arial';
 	}
+	#car-form div > img{
+	 width: 160px;
+	 float: left;
+	}
 	#car-form .descript img{
 	 border: 3px outset #ccc;
-	 margin: 0;
 	 width: 20px;
 	 height: 20px;
-	 float: right;
 	}
 
 		/* div на странице автопарк */
@@ -210,8 +217,13 @@
 	  color: #666666;
 	 }
 	 .description{
-	  margin-left: 150px;
+	  margin-left: 165px;
 	  font-size: 12px;
+	 }
+	 .description a > img{
+	  margin-top: 5px;
+	  border: 1px solid #cacaca;
+	  clear: both;
 	 }
 	 .edit-form {
 	 margin: 0 auto;
@@ -330,6 +342,8 @@
 	 }
 	 .foto-cars{
 	  margin: 2pt;
+	  width: 175px;
+	  border: 1px solid #000;
 	 }
 	 .f_contacts{
 	 position: relative;
@@ -358,6 +372,15 @@
 		width:345px; 
 		height:500px;
 	 }
+	 .iholder{
+	    border: 1px solid #000;
+	    width: 360px;
+	    padding: 2px;
+	    float: left;
+	    border-radius: 5px;
+		overflow: hidden;
+		background-color: #FFF;
+	   }
 		/*div с нами комфортно*/
 	 .img_bot{  
 	  height: 40px;
@@ -420,28 +443,27 @@
 	 margin: 5px;
 	}
 	.new-admin{
-	 width: 160px;
+	 width: 205px;
 	 margin: 0 auto;
-	 padding: 5px;
 	 border: 1px solid #000;
 	 background: #ccc;
 	}
 	.new-admin input{
+	 width: 190px;
 	 margin: 5px;
 	}
 	.new-rate{
-	 width: 230px;
+	 width: 210px;
 	 margin: 0 auto;
-	 padding: 5px;
 	 border: 1px solid #000;
 	 background: #ccc;
 	}
 	.new-rate input{
-	 width: 210px;
-	 margin: 5px 10px 5px 10px;
+	 width: 195px;
+	 margin: 5px;
 	}
 	.new-car{
-	 width: 230px;
+	 width: 210px;
 	 float: left;
 	 margin-right: 5px;
 	 padding: 5px;
@@ -449,8 +471,8 @@
 	 background: #ccc;
 	}
 	.new-car input,select{
-	  width: 210px;
-	  margin: 5px 10px 5px 10px;
+	  width: 200px;
+	  margin: 5px;
 	}
 	.page-title{ 
 	 color: #d70505 ;
@@ -597,6 +619,6 @@
 }
 #img-holder img{
     margin: 0 auto;
-	width: 228px;
+	width: 208px;
 	border: 1px solid #000;
 }

@@ -15,35 +15,44 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
    </head>
   <body>
 <?
-   
+   //  обработка запроса POST
    if(isset($_POST[car_change])){
+   
         $car = $dao->searchCar($_POST['img_id']); // заполнение значениями из БД
+		
 		if( $_POST[owner]=='' && $_POST[call]=='' && $_POST[model]=='' && $_FILES[uploadbtn][name]=='' && $_POST[categor]==''){
 			echo "<script language='JavaScript'>alert('Изменений нет')</script>";		
 			//$car = $dao->searchCar($_POST['img_id']); // заполнение значениями из БД
 		} else{
-		$uploadfile = $uploaddir . basename($_FILES['uploadbtn']['name']);
-		$oldfoto = $_SERVER['DOCUMENT_ROOT'].$_POST['oldimg'];
+			$uploadfile = $uploaddir . basename($_FILES['uploadbtn']['name']); // новое фото
+			$oldfoto = $_POST['oldimg']; // старое фото
+			
+			// подготовка данных для записи ( проверка заполненных полей)
 		    if($_POST[owner]!='') $car[owner] = $_POST[owner];
 			if($_POST[call]!='')  $car[dr_call] = $_POST[call];
 			if($_POST[model]!='') $car[model] = $_POST[model];
+			if($_FILES[uploadbtn][name]!='') { $car[img] = $uploadfile; $car[4] = $uploadfile; }
 			if($_POST[categor]!='') $car[fleet_name] = $_POST['categor'];
-	echo '<pre>'; // загружаем новое фото
-			if($uploadfile != ''){
-			//echo $_SERVER['DOCUMENT_ROOT'].$uploadfile;
-			$car[img] = $uploadfile;
-		if (move_uploaded_file($_FILES['uploadbtn']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$uploadfile)) 
-			{
 			
+		 
+		 
+	echo '<pre>'; // загружаем новое фото
+		if($_FILES['uploadbtn']['tmp_name'] != ''){
+		        print_r($_FILES['uploadbtn']['tmp_name']);
+				$car[img] = $uploadfile;
+			if(move_uploaded_file($_FILES['uploadbtn']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$uploadfile)) 
+				{
+			if (file_exists($_SERVER['DOCUMENT_ROOT'].$oldfoto)) { unlink($_SERVER['DOCUMENT_ROOT'].$oldfoto); } // удалить старый файл
 		    echo "Файл корректен и был успешно загружен.\n";
-			  if (file_exists($oldfoto)) { unlink($oldfoto); } // удалить старый файл	
-			}						
-		        $dao->updateCar($car);
-				
-		} else {
+			  
+				}						
+		        
+			//echo "<script language='JavaScript'>location.replace('./administration.php')</script>";	
+			} else {
 			echo "Возможная атака с помощью файловой загрузки!\n";
 		}
 	echo "</pre>";
+	    $dao->updateCar($car);
 			}
    }else{
      $car = $dao->searchCar($_GET['id']);
@@ -80,12 +89,13 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 			$hand = "свой вариант";
 			if(count($categories)){
 			foreach($categories as $category){
-			echo "<option value='".$category[0]."' >$category[0]</option>";
+			if($category[0] == $car[fleet_name]) { echo "<option value='".$category[0]."' selected >$category[0]</option>"; }
+			else { echo "<option value='".$category[0]."' >$category[0]</option>"; }
 			}
 			echo "<option value='".$hand."' >$hand</option>";
 			} else {
 			 echo "<option value='' ></option>";
-			 echo "<option value='".$hand."' >$hand</option>";
+			 echo "<option value='".$hand."' selected>$hand</option>";
 			}
 		echo "</td></tr>
 		<tr><td><input type='submit' name='car_change' value='Принять' /></td></tr>

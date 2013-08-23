@@ -220,8 +220,8 @@
 		
 	</div>
 	<div class="admin-data-div">
-	<div id="find">
-	  <form id='find-form' method='POST' action='../admin/administration.php'>
+	  <div id="find">
+	   <form id='find-form' method='POST' action='../admin/administration.php'>
 				<legend><strong>Показать категорию </strong></legend>
 		<?
 		    echo "<select name='find-categor' id='fndCategories' onchange='sortCar(this.form)'>";
@@ -238,45 +238,22 @@
 
 	  </form><br>
 		</div>
-	<?
+     	<?
 		
 		if($fleet_name == "Все категории") $fleet_name = '';
-		$cars = $dao->findCar($fleet_name);
-			echo "<form id='car-form' method='POST'>";
-			echo "<table class='admin-table'>";
-			//echo "<tr id='head'><th>image</th><th>data</th>'><th>image</th><th>data</th></</tr>";
-			$column = 0;
-		foreach($cars as $value){
-			if(!$column){
-		echo "
-			 <tr><td><img src='".$value[4]."' alt='Нет фото' class='fleet-img'/>
-			 <div class='description'><span class='red-str'>позывной:</span> $value[2]<br>
-			 <span class='red-str'>владелец:</span> $value[1]<br>
-			 <span class='red-str'>модель:</span> $value[3]<br>
-			 <span class='red-str'>категория:</span> $value[5]<br>
-			 <span class='red-str'>path:</span> $value[4]<br>
-			 <a href='../admin/img_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>
-			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></a></div></td>		   
-			   ";
-			 $column++;
-			 }else{
-			 		echo "
-			 <td><img src='".$value[4]."' alt='Нет фото'class='fleet-img' /><span class='red-str'>позывной:</span> $value[2]<br>
-			 <div class='description'><span class='red-str'>владелец:</span> $value[1]<br>
-			 <span class='red-str'>модель:</span> $value[3]<br>
-			 <span class='red-str'>категория:</span> $value[5]<br>
-			  <span class='red-str'>path:</span> $value[4]<br>
-			 <a href='../admin/img_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>    
-			 <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></a></div></td></tr>			   
-				";
-			 $column--;	
-			  }
-		}
-		echo "</table>";
-		echo "</form>";
-	?>
+				$cars = $dao->findCar($fleet_name);
+		echo "<form id='car-form' method='POST'>";
+					foreach($cars as $value){
+						echo "<div class='iholder'><img src='".$value[4]."' alt='Нет фото' class='fleet-img'/>
+							<div class='description'><span class='red-str'>позывной:</span> $value[2]<br>
+							  <span class='red-str'>владелец:</span> $value[1]<br>
+							  <span class='red-str'>модель:</span> $value[3]<br>
+							  <span class='red-str'>категория:</span> $value[5]<br>
+							  <a href='../admin/img_edit.php?id=".$value[0]."' title=\"изменить\"><img src='../image/document-edit.png' alt='edit'></a>
+							  <a href='../admin/img_delete.php?id=".$value[0]." ' title=\"удалить\"><img src='../image/deletered.png' alt='delete'></a>
+						     </div></div>";}
+		echo "</form>"; ?>
 	</div>
-</div>
-</div>	
+</div>		
  </body>
 </html>

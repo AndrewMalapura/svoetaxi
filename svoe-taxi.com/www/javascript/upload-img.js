@@ -12,7 +12,8 @@ $(document).ready(function() {
 		 
 	// Кнопка выбора файлов
 	var uploadBtn = document.getElementById("uploadbtn");
-			
+	var ctg = document.getElementById("lstCategories");	
+
 	// При нажатии на кнопку выбора файлов
     uploadBtn.onchange=function(event){
 			
@@ -40,7 +41,7 @@ $(document).ready(function() {
       reader.readAsDataURL(file);
 	  }
 	  
-	  var ctg = document.getElementById("lstCategories");
+	 
 	 
 	ctg.onchange = function (event){	
 	var x=document.getElementById("lstCategories").selectedIndex;
