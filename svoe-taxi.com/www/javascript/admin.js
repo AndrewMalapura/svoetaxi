@@ -1,85 +1,52 @@
-	var stat = getCookie('param');
-	var bcg_color = '#E8E8E8';
-	var bcg_hover = '#F08080';
-	var bcg_active = '#F08080';
+	var stat = getCookie('param'); // считываем название вкладки
+	
 	
 	window.onload=function(){
-	
-		switch (stat) {
+	   
+	      var buttonId = "brts";
+	   
+	switch (stat) {
 	   case 'user':
-	       document.getElementById('usr').style.display='block';
-		   document.getElementById('busr').style.background=bcg_active;
-		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background=bcg_color;
-		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background=bcg_color;
-		 //  setCookie('param','user','');
+		   buttonId = "busr";
 	       break;
 	   case 'tariff':
-		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background=bcg_color;
-		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background=bcg_color;
-		   document.getElementById('trf').style.display='block';
-		   document.getElementById('brts').style.background=bcg_active;
-		  // setCookie('param','tariff','');
+			buttonId = "brts";
 	       break;
 	  case 'cars':
-		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background=bcg_color;
-		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background=bcg_color;
-		   document.getElementById('cars').style.display='block';
-		   document.getElementById('bcar').style.background=bcg_active;
-		 //  setCookie('param','cars','');
+			buttonId = "bcar";
+	       break;
+	  case 'reclame':
+			buttonId = "brec";
 	       break;
 	  default :
-		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background=bcg_color;
-		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background=bcg_color;
-		   document.getElementById('trf').style.display='block';
-		   document.getElementById('brts').style.background=bcg_active;
+		    buttonId = "brts";
 		   setCookie('param','tariff','');
 	}
+	
+			showDiv(buttonId);
 	}
 
+	function showDiv(btnId){
 	
-	function showDiv(id){
-	  // document.getElementById(id).value="КНОПКА";
-	  // var val = id;
-	 switch (id) {
-	   case 'busr':
-	       document.getElementById('usr').style.display='block';
-		   document.getElementById('busr').style.background=bcg_active;
-		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background=bcg_color;
-		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background=bcg_color;
-		   setCookie('param','user','');
-	       break;
-	   case 'brts':
-	       //document.getElementById(id).value="Тарифы";
-		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background=bcg_color;
-		   document.getElementById('cars').style.display='none';
-		   document.getElementById('bcar').style.background=bcg_color;
-		   document.getElementById('trf').style.display='block';
-		   document.getElementById('brts').style.background=bcg_active;
-		   setCookie('param','tariff','');
-	       break;
-	   case 'bcar':
-	       //document.getElementById(id).value="Тарифы";
-		   document.getElementById('usr').style.display='none';
-		   document.getElementById('busr').style.background=bcg_color;
-		   document.getElementById('trf').style.display='none';
-		   document.getElementById('brts').style.background=bcg_color;
-		   document.getElementById('cars').style.display='block';
-		   document.getElementById('bcar').style.background=bcg_active;
-		   setCookie('param','cars','');
-	       break;
-	  default : alert('Я таких значений не знаю');
-	}
+	var btnArr = {'usr':"busr",'trf':"brts",'cars':"bcar",'reclame':"brec"};
+	var active = 'tariff';
+	for(var div in btnArr){
+	
+		if( btnId === btnArr[div] ){ 
+		  document.getElementById(div).style.display='block';
+		  document.getElementById(btnArr[div]).className="command-button-active";  
+			  switch(div){
+			   case 'usr': active = 'user'; break;
+			   case 'trf': active = 'tariff'; break;
+			   case 'cars': active = 'cars'; break;
+			   case 'reclame': active = 'reclame'; break;
+			  }
+	    }else{
+	      document.getElementById(div).style.display='none';
+		  document.getElementById(btnArr[div]).className ="command-button"; 
+		    }		  
+	    }
+		  setCookie('param',active,'');
 	}
 	
 	function onChange(){	

@@ -155,9 +155,46 @@
 	  padding: 4px;
 	  font-weight: bold;
 	  border-radius: 20px;
-	  background: #E8E8E8;
-	  background: -moz-linear-gradient(top,  #82cc5d 0%, #53b73c 100%);
-	  border: 2px solid red;
+	  color: #000;
+	    background: #fefcea; /* Для старых браузров */
+		background: -moz-linear-gradient(top,#FFFAFA, #CFCFCF); /* Firefox 3.6+ */
+		/* Chrome 1-9, Safari 4-5 */
+		background: -webkit-gradient(linear, left top, left bottom, 
+					color-stop(0%,#FFFAFA), color-stop(100%,#8B8989));
+		/* Chrome 10+, Safari 5.1+ */
+		background: -webkit-linear-gradient(top, #FFFAFA, #8B8989);
+		background: -o-linear-gradient(top, #FFFAFA, #8B8989); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #FFFAFA, #8B8989); /* IE10 */
+		background: linear-gradient(top, #FFFAFA, #8B8989); /* CSS3 */ 
+	  border: 2px solid  #B22222;
+	  margin-bottom: 3px;
+	 }
+	 #command-div .command-button:hover, #command-div .command-button-active:hover{
+	  width: auto;
+	  height: auto;
+	  color: #828;
+	  padding: 4px;
+	  font-weight: bold;
+	  border-radius: 20px;
+	  margin-bottom: 3px;
+	 }
+	 .command-button-active{
+	  width: auto;
+	  height: auto;
+	  padding: 4px;
+	  font-weight: bold;
+	  border-radius: 20px;
+	    background: #fefcea; /* Для старых браузров */
+		background: -moz-linear-gradient(top, #FFFAFA, #cacaca); /* Firefox 3.6+ */
+		/* Chrome 1-9, Safari 4-5 */
+		background: -webkit-gradient(linear, left top, left bottom, 
+					color-stop(0%,#FFFAFA), color-stop(100%,#cacaca));
+		/* Chrome 10+, Safari 5.1+ */
+		background: -webkit-linear-gradient(top, #FFFAFA, #cacaca);
+		background: -o-linear-gradient(top, #FFFAFA, #cacaca); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #FFFAFA, #cacaca); /* IE10 */
+		background: linear-gradient(top, #FFFAFA, #cacaca); /* CSS3 */ 
+	  border: 2px solid  #00EE00;
 	  margin-bottom: 3px;
 	 }
 	
@@ -223,7 +260,8 @@
 	 .description a > img{
 	  margin-top: 5px;
 	  border: 1px solid #cacaca;
-	  clear: both;
+	  margin-top: 20px;
+	  float: right;
 	 }
 	 .edit-form {
 	 margin: 0 auto;
@@ -290,12 +328,10 @@
 	   font: 13px Arial;
 	   margin: 0;
 	 }
-	 
 	 #find{
 	  width: auto;
 	  padding-left: 10px;
-	}
-	 
+	} 
 	 #find legend{
 	  margin-top: 5px;
 	  float: left; 
@@ -376,6 +412,7 @@
 	    border: 1px solid #000;
 	    width: 360px;
 	    padding: 2px;
+		margin: 3px;
 	    float: left;
 	    border-radius: 5px;
 		overflow: hidden;
@@ -572,6 +609,29 @@
 	.rate-name{
 	 font-weight: bold;
 	}
+	#running-text-editor{
+	 width: auto;
+	 margin: 10px auto;
+	 /*border: 1px solid #000;*/
+	 display: block;
+	 overflow: auto;
+	}
+	#running-text-form{
+	 border: 1px solid #000;
+	 float:left;
+	 margin: 2px;
+	 margin-left: 10px;
+	 height: auto;	
+	}
+	#running-text-form textarea{
+	 width: 275px;
+	 max-width: 275px;
+	}
+	#view-banners{
+	 width: auto;
+	 margin: 10px auto;
+	 border: 1px solid #000;
+	}
 	#title-table{
 	 width: 250px;
 	}
@@ -581,6 +641,14 @@
 	}
 	#vacancy li > a:hover{
 	  color: #CD0000;
+	}
+	#view-saved-text{
+	  /*float: right;*/
+	  width: 690px;
+	  margin: 2px;
+	  margin-left: 300px;
+	  height: 150px;
+	  border: 1px solid #000;
 	}
 	#wr{
 	 margin-right: 205px;
@@ -606,7 +674,7 @@
 #img-div {
 	border: 1px solid #000;
 	width: auto;
-	padding:0;
+	padding: 3px;
 }
 #uploadbtn{
     color: red;
@@ -619,6 +687,6 @@
 }
 #img-holder img{
     margin: 0 auto;
-	width: 208px;
+	width: 215px;
 	border: 1px solid #000;
 }

@@ -125,7 +125,8 @@
 <div id="command-div">
     <input id="brts" class="command-button" type="button" name="b_rate" value="управление тарифами" onclick="showDiv(this.id)"/>
 	<input id="busr" class="command-button" type="button" name="b_user" value="управление пользователями" onclick="showDiv(this.id)"/>
-	<input id="bcar" class="command-button" type="button" name="b_car" value='галерея "Aвтопарк"' onclick="showDiv(this.id)"/>	
+	<input id="bcar" class="command-button" type="button" name="b_car" value='галерея "Aвтопарк"' onclick="showDiv(this.id)"/>
+	<input id="brec" class="command-button" type="button" name="b_rec" value='Рекламные объявления' onclick="showDiv(this.id)"/>
 	<br>
 </div>
 <div class="admin-page" id="usr" >
@@ -254,6 +255,19 @@
 						     </div></div>";}
 		echo "</form>"; ?>
 	</div>
+	</div>
+<div class="admin-page" id="reclame" >
+	<div id="running-text-editor">
+		<form id="running-text-form" method='POST' action='../admin/administration.php'>
+		<textarea rows="5" cols="30" name="quote" wrap="physical" placeholder="* Введите текст бегущей строки"></textarea><br/>
+		<input type="submit" name="new_text" value="Добавить"/><input type="reset" value="Очистить"/>
+		</form>
+		<div id="view-saved-text" ></div>
+	</div>
+	<div id="view-banners">
+		Просмотр каталога с баннерами
+	<div>
+</div>
 </div>		
  </body>
 </html>

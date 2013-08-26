@@ -47,12 +47,13 @@ if(($_SESSION[name] == "")OR($_SESSION[name] == null)) die("Good Bye !!!");
 			  
 				}						
 		        
-			//echo "<script language='JavaScript'>location.replace('./administration.php')</script>";	
+			//
 			} else {
 			echo "Возможная атака с помощью файловой загрузки!\n";
 		}
 	echo "</pre>";
 	    $dao->updateCar($car);
+		echo "<script language='JavaScript'>location.replace('./administration.php')</script>";	
 			}
    }else{
      $car = $dao->searchCar($_GET['id']);

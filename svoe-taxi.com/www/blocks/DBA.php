@@ -231,9 +231,28 @@ if(!$query )
     return $car;
   }
   
-  // -------------- functions --------------       
+  // -------------- Running string --------------       
   
-  
+  function getRunning_Strings(){
+	  $this->connect();
+		$query = mysql_query("SELECT * FROM running_str") or die(mysql_error());
+		$strings = mysql_fetch_array($query);
+	  $this->close_connection();
+	  print_r($strings);
+    return ;
+  }
+  function addText($text){
+	  $this->connect();
+		$query = mysql_query("insert into running_str values( NULL,'".$text."')") or die(mysql_error());
+		$car = mysql_fetch_array($query);
+	  $this->close_connection();
+  }
+  function deleteRecord($id_rec){
+	  $this->connect();
+		$query = mysql_query("delete from running_str where id_user='".$id_rec."'") or die(mysql_error());
+	  $this->close_connection();
+    return $car;
+  }
   
   
   } // end class
